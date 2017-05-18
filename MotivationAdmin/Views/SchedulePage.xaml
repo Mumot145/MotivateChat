@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MotivationAdmin.Views.SchedulePage">
+    <StackLayout HorizontalOptions="Center">
+        <Label Text="{Binding groupName}" FontSize="Large"/>
+        <StackLayout BindingContext="{Binding schedule}">
+            <StackLayout>
+                <Label Text="Monday :"/>
+                <Switch x:Name="Monday" IsToggled="{Binding Monday}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Tuesday :"/>
+                <Switch x:Name="Tuesday" IsToggled="{Binding Tuesday}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Wednesday :"/>
+                <Switch x:Name="Wednesday" IsToggled="{Binding Wednesday}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Thursday :"/>
+                <Switch x:Name="Thursday" IsToggled="{Binding Thursday}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Friday :"/>
+                <Switch x:Name="Friday" IsToggled="{Binding Friday}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Saturday :"/>
+                <Switch x:Name="Saturday" IsToggled="{Binding Saturday}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Sunday :"/>
+                <Switch x:Name="Sunday" IsToggled="{Binding Sunday}"/>
+            </StackLayout>
+            <Button Clicked="updateSchedule"/>
+        </StackLayout>
+       
+    </StackLayout>
+</ContentPage>
