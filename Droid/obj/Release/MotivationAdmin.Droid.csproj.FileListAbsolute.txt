@@ -150,4 +150,3 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\Xama
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\MotivationAdmin.dll.mdb
-C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Release\MotivationAdmin.dll.mdb
