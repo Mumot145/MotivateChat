@@ -11,7 +11,8 @@
 namespace MotivationAdmin.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\User\\Desktop\\MotivationApp-master\\MotivationAdmin\\Views\\NewGroup.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Patrick\\Desktop\\MotivateChat\\MotivateChat\\MotivationAdmin\\Views\\NewGroup" +
+        ".xaml")]
     public partial class NewGroup : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

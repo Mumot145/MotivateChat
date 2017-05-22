@@ -45,7 +45,8 @@ namespace MotivationChat.Droid
             RegistrationID = registrationId;
 
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-
+            var acc = MainActivity.account;
+            Console.WriteLine("inside registered and have =" + acc);
             MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
         }
 
@@ -81,11 +82,11 @@ namespace MotivationChat.Droid
                 foreach (var key in intent.Extras.KeySet())
                     msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
             }
-
+            Console.WriteLine(msg.ToString());
             //Store the message
             var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
             var edit = prefs.Edit();
-            edit.PutString("last_msg", msg.ToString());
+            edit.PutString("last_msg", intent.Extras.ToString());
             edit.Commit();
 
             string message = intent.Extras.GetString("message");

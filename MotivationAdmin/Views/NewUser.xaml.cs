@@ -14,7 +14,7 @@ namespace MotivationAdmin.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewUser : ContentPage
 	{
-        AzureDataService _azure = new AzureDataService();
+        AzureDataService _azure;
         ChatGroup chatGroup = new ChatGroup();
 		public NewUser (ChatGroup _chatGroup)
 		{
@@ -24,7 +24,6 @@ namespace MotivationAdmin.Views
         }
         async void AddMember(object sender, EventArgs e)
         {
-             _azure.Initialize();
             string ngMember = newGroupMember.Text;
             if (!String.IsNullOrEmpty(ngMember))
             {
