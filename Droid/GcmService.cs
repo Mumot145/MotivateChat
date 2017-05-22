@@ -45,7 +45,7 @@ namespace MotivationChat.Droid
             RegistrationID = registrationId;
 
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-            
+
             MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
         }
 
