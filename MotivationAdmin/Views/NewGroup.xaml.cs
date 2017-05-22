@@ -14,7 +14,7 @@ namespace MotivationAdmin.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewGroup : ContentPage
 	{
-        AzureDataService _azure = new AzureDataService();
+        AzureDataService _azure;
         User _thisUser = new User();
         ChatGroup chatGroup = new ChatGroup();
         public NewGroup(User admin)

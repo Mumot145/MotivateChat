@@ -15,7 +15,7 @@ namespace MotivationAdmin.Views
 	public partial class SchedulePage : ContentPage
 	{
         ScheduleViewModel thisGroupSchedule = new ScheduleViewModel();
-        AzureDataService _azure = new AzureDataService();
+        AzureDataService _azure;
 		public SchedulePage (ScheduleViewModel svm)
 		{
             thisGroupSchedule = svm;

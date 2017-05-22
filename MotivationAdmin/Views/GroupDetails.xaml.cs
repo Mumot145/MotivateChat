@@ -18,7 +18,7 @@ namespace MotivationAdmin
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GroupDetails : TabbedPage
     {
-        AzureDataService _azure = new AzureDataService();
+        AzureDataService _azure;
         User _currentUser = new User();
         public GroupDetails(ChatGroup _chatGroup, User _user)
         {

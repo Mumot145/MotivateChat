@@ -26,7 +26,7 @@ namespace MotivationAdmin
         bool authenticated = false;
         User currentUser = new User();
         FacebookUser facebookUser = new FacebookUser();
-        AzureDataService _azure = new AzureDataService();
+        AzureDataService _azure;
  
         private string token;
         public GroupList(string _aToken)

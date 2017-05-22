@@ -16,11 +16,23 @@ namespace MotivationAdmin
     {
 
         SqlConnection connection = new SqlConnection();
+        static AzureDataService defaultInstance = new AzureDataService();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader reader;
-        public void Initialize()
+        private AzureDataService()
         {
-            connection = new SqlConnection(Constants.AzureSQLConnection);
+            this.connection = new SqlConnection(Constants.AzureSQLConnection);
+        }
+        public static AzureDataService DefaultService
+        {
+            get
+            {
+                return defaultInstance;
+            }
+            private set
+            {
+                defaultInstance = value;
+            }
         }
 
         public User GetUser(string Info, string Method)
@@ -201,8 +213,7 @@ namespace MotivationAdmin
                         if (connection != null)
                             connection.Dispose();
 
-                        // Create connection and open it...
-                        Initialize();
+                        // Create connection and open it...                        
                         cmd.CommandText = Query;
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = connection;

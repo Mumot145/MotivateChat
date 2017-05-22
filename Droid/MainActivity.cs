@@ -28,7 +28,7 @@ namespace MotivationAdmin.Droid
         // Define a authenticated user.
         private MobileServiceUser user;
         static MainActivity instance = null;
-
+        static public Account account = null;
         public MobileServiceUser _user
         {
             get {
@@ -36,6 +36,7 @@ namespace MotivationAdmin.Droid
             }
             
         }
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -93,8 +94,9 @@ namespace MotivationAdmin.Droid
             // Initialize the authenticator before loading the app.
             //App.Init((IAuthenticate)this);
             System.Diagnostics.Debug.WriteLine("accounts..."+ accounts.FirstOrDefault());
+            account = accounts.FirstOrDefault();
             // Load the main application
-            LoadApplication (new MotiveApp(accounts.FirstOrDefault()));
+            LoadApplication (new MotiveApp(account));
 
             PackageInfo info = this.PackageManager.GetPackageInfo("com.xamarin.sample.MotivationAdmin", PackageInfoFlags.Signatures);
 
