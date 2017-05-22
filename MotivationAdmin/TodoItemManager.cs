@@ -39,7 +39,7 @@ namespace MotivationAdmin
 
 #endif
        User _UserInfo;
-        const string offlineDbPath = @"localstore1.db";
+        const string offlineDbPath = @"localstore2.db";
 
         private TodoItemManager()
         {
@@ -121,10 +121,6 @@ namespace MotivationAdmin
 
         public async Task SaveTaskAsync(TodoItem item)
         {
-            Debug.WriteLine("item - "+ item.GroupId);
-            Debug.WriteLine("item - " + item.SendTime);
-            Debug.WriteLine("item - " + item.ToDo);
-            Debug.WriteLine("item - " + item.Done);
             if (item.Id == null)
             {
                 await todoTable.InsertAsync(item);
