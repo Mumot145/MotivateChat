@@ -7,6 +7,7 @@ using Gcm.Client;
 using Microsoft.WindowsAzure.MobileServices;
 using MotivationAdmin;
 using MotivationAdmin.Droid;
+using MotivationAdmin.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -45,8 +46,24 @@ namespace MotivationChat.Droid
             RegistrationID = registrationId;
 
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-            var acc = MainActivity.account;
-            Console.WriteLine("inside registered and have =" + acc);
+            var acc = MainActivity.CurrentActivity.account;
+            string aToken = "";
+            if (acc != null)
+                aToken = acc.Properties["access_token"];
+            AzureDataService service;
+            User User = null;
+            service = AzureDataService.DefaultService;
+            if (service.GetUser() != null)
+            {
+                User = service.GetUser();
+                Console.WriteLine("registered id is -===" + User.Id.ToString());
+            }
+            
+            //   List<string> user = new List<string>();
+            //   user.Add(User.Id.ToString());
+            
+
+            
             MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
         }
 

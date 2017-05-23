@@ -27,7 +27,7 @@ namespace MotivationAdmin.Views
             string ngMember = newGroupMember.Text;
             if (!String.IsNullOrEmpty(ngMember))
             {
-                var user = _azure.GetUser(ngMember,"Name");
+                var user = _azure.GetUser();
                 Debug.WriteLine(chatGroup.GroupName);
 
                 if(user != null )

@@ -28,7 +28,7 @@ namespace MotivationAdmin.Droid
         // Define a authenticated user.
         private MobileServiceUser user;
         static MainActivity instance = null;
-        static public Account account = null;
+        public Account account;
         public MobileServiceUser _user
         {
             get {
@@ -36,7 +36,7 @@ namespace MotivationAdmin.Droid
             }
             
         }
-
+        
         public async Task<bool> Authenticate()
         {
             var success = false;

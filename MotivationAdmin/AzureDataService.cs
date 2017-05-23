@@ -9,6 +9,8 @@ using System.Diagnostics;
 using MotivationAdmin.Models;
 using System.Linq;
 using System.Threading;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace MotivationAdmin
 {
@@ -16,12 +18,22 @@ namespace MotivationAdmin
     {
 
         SqlConnection connection = new SqlConnection();
+        FacebookUser facebookUser = new FacebookUser();
+        private static User User = new User();
         static AzureDataService defaultInstance = new AzureDataService();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader reader;
         private AzureDataService()
         {
+            
+        }
+        private void Init()
+        {
             this.connection = new SqlConnection(Constants.AzureSQLConnection);
+        }
+        public User GetUser()
+        {
+            return User;
         }
         public static AzureDataService DefaultService
         {
@@ -34,25 +46,25 @@ namespace MotivationAdmin
                 defaultInstance = value;
             }
         }
-
-        public User GetUser(string Info, string Method)
+         
+        public void SetUser(string Method)
         {
-            User _user = new User();
+           // User _user = new User();
             string query="";
             if (Method == "fbId")
             {
-                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE FacebookId = '" + Info + "'";
+                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE FacebookId = '" + facebookUser.Id + "'";
              
             } else if(Method == "rId")
             {
-                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE Id = '" + Info + "'";
+                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE Id = '" + facebookUser.Id + "'";
             } else if(Method == "Name")
             {
-                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE Name = '" + Info + "'";
+                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE Name = '" + facebookUser.Name + "'";
             }
                          
-            _user = (User) AzureConnect(query, "User");
-            return _user;
+            User = (User) AzureConnect(query, "User");
+           // return _user;
         }
         public Schedule GetSchedule(string Info)
         {
@@ -213,6 +225,7 @@ namespace MotivationAdmin
                         if (connection != null)
                             connection.Dispose();
 
+                        Init();
                         // Create connection and open it...                        
                         cmd.CommandText = Query;
                         cmd.CommandType = CommandType.Text;
@@ -493,6 +506,16 @@ namespace MotivationAdmin
             // 24 indicates media errors. They're serious errors (that should
             // be also notified) but we may retry...
             return RetriableClasses.Contains(error.Class); // LINQ...
-        } 
+        }
+        public async Task GetFacebookProfileAsync(string accessToken)
+        {
+            var requestUrl = "https://graph.facebook.com/v2.8/me/"
+                             + "?fields=name,picture,cover,age_range,devices,email,gender,is_verified"
+                             + "&access_token=" + accessToken;
+            var httpClient = new HttpClient();
+            var userJson = await httpClient.GetStringAsync(requestUrl);
+            facebookUser = JsonConvert.DeserializeObject<FacebookUser>(userJson);
+        }
+
     }
 }

@@ -28,6 +28,7 @@ namespace MotivationAdmin
             BindingContext = _chatGroup;
             _currentUser = _user;
             Children.Add(toDo);
+            _azure = AzureDataService.DefaultService;
             Schedule _schedule = _azure.GetSchedule(_chatGroup.Id.ToString());
             
             var tbi = new ToolbarItem("+", "plus.png", () =>

@@ -11,8 +11,8 @@
 namespace MotivationAdmin {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Patrick\\Desktop\\MotivateChat\\MotivateChat\\MotivationAdmin\\Views\\GroupDet" +
-        "ails.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\User\\Desktop\\MotivationApp-master\\MotivationAdmin\\Views\\GroupDetails.xam" +
+        "l")]
     public partial class GroupDetails : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

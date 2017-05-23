@@ -9,7 +9,6 @@
     <Import_RootNamespace>MotivationAdmin</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)HTTP\SocialMedia.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Schedule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MotiveApp.xaml.cs">
       <DependentUpon>MotiveApp.xaml</DependentUpon>
@@ -85,5 +84,8 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)HTTP\" />
   </ItemGroup>
 </Project>

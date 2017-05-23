@@ -26,8 +26,8 @@ namespace MotivationAdmin
         bool authenticated = false;
         User currentUser = new User();
         FacebookUser facebookUser = new FacebookUser();
-        AzureDataService _azure;
- 
+        AzureDataService service;
+
         private string token;
         public GroupList(string _aToken)
         {           
@@ -41,7 +41,7 @@ namespace MotivationAdmin
             //tbi.Order = ToolbarItemOrder.Secondary;  // forces it to appear in menu on Android
             //ToolbarItems.Add(tbi);
             BindingContext = new List<ChatGroup>();
-
+            service = AzureDataService.DefaultService;
             var tbi = new ToolbarItem("Add Group","", () =>
             {
                 
@@ -81,25 +81,22 @@ namespace MotivationAdmin
                 await Navigation.PushModalAsync(new LoginPage());
             } else
             {
-                Debug.WriteLine("we have a token and past login...");
-                await GetFacebookProfileAsync(token);
-                if(!String.IsNullOrEmpty(facebookUser.Id))
+                await service.GetFacebookProfileAsync(token);
+                service.SetUser("fbId");
+                currentUser = service.GetUser();
+                if(currentUser == null)
                 {
-                    currentUser = _azure.GetUser(facebookUser.Id,"fbId");
-                    if(currentUser == null)
-                    {
-                        _azure.RegisterUser(facebookUser.Name, facebookUser.Id);
-                        currentUser = _azure.GetUser(facebookUser.Id, "fbId");
-                        if (currentUser == null)
-                            return;                     
-                    }
-                    refresh();
-                }                            
+                    service.RegisterUser(facebookUser.Name, facebookUser.Id);
+                    currentUser = service.GetUser();
+                    if (currentUser == null)
+                        return;                     
+                }
+                refresh();                                            
             }
         }
         void refresh()
         {
-            var info = _azure.GetGroups(currentUser.Id);
+            var info = service.GetGroups(currentUser.Id);
             Debug.WriteLine("refreshing rn =="+ info.FirstOrDefault());
             if (info != null)
             {

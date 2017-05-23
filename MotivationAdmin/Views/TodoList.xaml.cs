@@ -9,6 +9,7 @@ namespace MotivationAdmin
     public partial class TodoList : ContentPage
     {
         TodoItemManager manager;
+        AzureDataService service;
         ChatGroup thisChatGroup;
         
         [System.Obsolete("Use RuntimePlatform instead.")]
@@ -18,7 +19,7 @@ namespace MotivationAdmin
             thisChatGroup = _chatGroup;
             todoList.ItemsSource = _chatGroup.ToDoList;
             BindingContext = _chatGroup.ToDoList;
-
+            service = AzureDataService.DefaultService;
             manager = TodoItemManager.DefaultManager;
             manager.SetGroup(_chatGroup);
             Console.WriteLine("starting todo");

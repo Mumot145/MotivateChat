@@ -11,8 +11,7 @@
 namespace MotivationAdmin {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Patrick\\Desktop\\MotivateChat\\MotivateChat\\MotivationAdmin\\Views\\LoginPag" +
-        "e.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\User\\Desktop\\MotivationApp-master\\MotivationAdmin\\Views\\LoginPage.xaml")]
     public partial class LoginPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
