@@ -295,6 +295,11 @@ C:\Users\Patrick\Desktop\MotivateChat\MotivateChat\Droid\obj\Debug\android\asset
 C:\Users\Patrick\Desktop\MotivateChat\MotivateChat\Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Patrick\Desktop\MotivateChat\MotivateChat\Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\Patrick\Desktop\MotivateChat\MotivateChat\Droid\obj\Debug\MotivationAdmin.dll.mdb
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Design.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Auth.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Core.pdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MotivationAdmin.dll.config
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MotivationAdmin.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MotivationAdmin.pdb
@@ -314,7 +319,6 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\PInvoke.Windows.Core.
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\SQLitePCLRaw.batteries_green.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\SQLitePCLRaw.core.dll
-C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\SQLitePCLRaw.lib.e_sqlite3.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\System.Net.Http.Extensions.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\System.Net.Http.Primitives.dll
@@ -325,7 +329,6 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Suppo
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Core.UI.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Core.Utils.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.CustomTabs.dll
-C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Design.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Fragment.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Media.Compat.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Transition.dll
@@ -335,8 +338,6 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Suppo
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.v7.MediaRouter.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.v7.Palette.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
-C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
-C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Auth.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Core.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Platform.dll
@@ -355,7 +356,6 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\PInvoke.Windows.Core.
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Validation.xml
-C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Core.pdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Core.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Core.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Platform.Android.pdb
@@ -363,7 +363,6 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Platfor
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Annotations.dll.stamp
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.CardView.dll.stamp
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll.stamp
@@ -399,6 +398,7 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\res\drawable-xxhdpi\i
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\R.cs.flag
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\uploadflags.txt
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MotivationAdmin.dll.mdb
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\I18N.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\I18N.West.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Java.Interop.dll.mdb

@@ -20,7 +20,7 @@ namespace MotivationAdmin.Views
 		{
             thisGroupSchedule = svm;
             BindingContext = thisGroupSchedule;
-            InitializeComponent ();
+            InitializeComponent();
 		}
         void updateSchedule(object sender, EventArgs e)
         {
