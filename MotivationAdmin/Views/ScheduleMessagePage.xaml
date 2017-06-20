@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MotivationAdmin.Views.ScheduleMessagePage">
+    <StackLayout>
+        <ListView x:Name="selectedItemsList"
+              ItemSelected="selectedItemsList_ItemSelected"
+              HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout >
+                                <Label Margin="10,0,0,0" Text="{Binding AttachedToDo.ToDo}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                                <Label Margin="20,0,0,5" Text="{Binding DayStr}" FontSize="Small" HorizontalOptions="Start"/>
+
+                            </StackLayout>
+                            <TimePicker HorizontalOptions="EndAndExpand" Time="{Binding SendTimeSpan}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Add Days to Schedule" Clicked="AddToSchedule"/>
+    </StackLayout>
+  
+</ContentPage>

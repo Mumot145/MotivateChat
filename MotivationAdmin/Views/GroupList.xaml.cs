@@ -1,6 +1,5 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using MotivationAdmin.Models;
-using MotivationAdmin.ViewModels;
 using MotivationAdmin.Views;
 using Newtonsoft.Json;
 using System;
@@ -27,6 +26,7 @@ namespace MotivationAdmin
         User currentUser = new User();
         FacebookUser facebookUser = new FacebookUser();
         AzureDataService service;
+        List<ChatGroup> thisGroupList = new List<ChatGroup>();
 
         private string token;
         public GroupList(string _aToken)
@@ -40,7 +40,7 @@ namespace MotivationAdmin
             //}, 0, 0);
             //tbi.Order = ToolbarItemOrder.Secondary;  // forces it to appear in menu on Android
             //ToolbarItems.Add(tbi);
-            BindingContext = new List<ChatGroup>();
+            //BindingContext = new List<ChatGroup>();
             service = AzureDataService.DefaultService;
             var tbi = new ToolbarItem("Add Group","", () =>
             {
@@ -65,7 +65,7 @@ namespace MotivationAdmin
             if (e.SelectedItem == null)
                 return;
             ChatGroup cg = (ChatGroup)e.SelectedItem;
-            await Navigation.PushModalAsync(new NavigationPage(new GroupDetails(cg, currentUser)));
+            await Navigation.PushAsync(new GroupDetails(cg, currentUser));
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
@@ -74,7 +74,7 @@ namespace MotivationAdmin
         {
             base.OnAppearing();
             groupList.ItemsSource = null;
-            Debug.WriteLine("appearing checking token--" + MotiveApp.Token);
+            Console.WriteLine("appearing checking token--" + MotiveApp.Token);
             // Refresh items only when authenticated.
             if (String.IsNullOrEmpty(token))
             {
@@ -98,9 +98,31 @@ namespace MotivationAdmin
         {
             var info = service.GetGroups(currentUser.Id);
             Debug.WriteLine("refreshing rn =="+ info.FirstOrDefault());
+            foreach(var i in info)
+            {
+                Console.WriteLine(" i.Id ==" + i.Id);
+                Console.WriteLine(" i.GroupName ==" + i.GroupName);
+                //Console.WriteLine(" i.UserList.Count ==" + i.UserList.Count);
+                if(i.ToDoList != null)
+                {
+                    Console.WriteLine(" i.ToDoList == exists !");
+                    foreach(var td in i.ToDoList)
+                    {
+                        if(td.toDoDays != null)
+                            Console.WriteLine(" td.tododays count == "+ td.toDoDays.Count);
+                    }
+                } else
+                {
+                    Console.WriteLine(" i.ToDoList == empty!");
+                }
+                
+                
+            }
+
             if (info != null)
             {
                 groupList.ItemsSource = info;
+                thisGroupList = info;
             }
         }
         public async Task GetFacebookProfileAsync(string accessToken)

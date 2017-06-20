@@ -39,7 +39,7 @@ namespace MotivationAdmin
 
 #endif
        User _UserInfo;
-        const string offlineDbPath = @"localstore1.db";
+        const string offlineDbPath = @"localstore2.db";
 
         private TodoItemManager()
         {
@@ -54,6 +54,7 @@ namespace MotivationAdmin
             this.client.SyncContext.InitializeAsync(store);
 
             this.todoTable = client.GetSyncTable<TodoItem>();
+            Console.WriteLine("inside constructor");
 #else
 
             this.todoTable = client.GetTable<TodoItem>();
@@ -99,13 +100,8 @@ namespace MotivationAdmin
                 IEnumerable<TodoItem> items = await todoTable
                     .Where(todoItem => !todoItem.Done)
                     .Where(cg=> cg.GroupId == Convert.ToString(chatGroup.Id))
-                    .OrderBy(time => time.SendTime)
+                 //   .OrderBy(time => time.SendTime)
                     .ToEnumerableAsync();
-                foreach(var i in items)
-                {
-                    Debug.WriteLine("ITEM WE GO -+"+i.ToDo);
-                }
-                
                 return new ObservableCollection<TodoItem>(items);
             }
             catch (MobileServiceInvalidOperationException msioe)
@@ -121,19 +117,27 @@ namespace MotivationAdmin
 
         public async Task SaveTaskAsync(TodoItem item)
         {
-            Debug.WriteLine("item - "+ item.GroupId);
-            Debug.WriteLine("item - " + item.SendTime);
-            Debug.WriteLine("item - " + item.ToDo);
-            Debug.WriteLine("item - " + item.Done);
             if (item.Id == null)
             {
-                await todoTable.InsertAsync(item);
+                Console.WriteLine("insider" + item.ToDo);
+                Console.WriteLine("insider" + item.GroupId);
+
+                await todoTable.InsertAsync(
+                    new TodoItem
+                    {
+                        ToDo = item.ToDo,
+                        GroupId = item.GroupId,
+                        Deleted = false,
+                        Done = false
+                    });
             }
             else
+
             {
+                Console.WriteLine("update");
+                Debug.WriteLine("update");
                 await todoTable.UpdateAsync(item);
             }
-            Debug.WriteLine("saved!!");
         }
 
 #if OFFLINE_SYNC_ENABLED

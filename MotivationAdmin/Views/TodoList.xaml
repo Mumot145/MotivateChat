@@ -51,7 +51,7 @@
             </ViewCell.ContextActions>             
             <StackLayout Orientation="Horizontal" Padding="15,5,15,0">
               <StackLayout HorizontalOptions="StartAndExpand"  Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-               <Label Text="{Binding ToDo}"  />
+               <Label Text="{Binding AttachedToDo.ToDo}"  />
               </StackLayout>
               <Label Text="{Binding SendTime}"  HorizontalOptions="EndAndExpand"/>
             </StackLayout>

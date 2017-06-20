@@ -4,28 +4,54 @@
              x:Class="MotivationAdmin.GroupDetails"
 
              Title="{Binding GroupName}">
-
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Name="Users" Activated="OnClick" Order="Primary" Priority="0" />
+    </TabbedPage.ToolbarItems>
     <ContentPage Title="Group Members">
         
         <StackLayout>
-      <Label Text="{Binding GroupName}"  HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="5" />
-      <ListView x:Name="userList" 
-                ItemsSource="{Binding UserList}"
-                Refreshing="OnRefresh"
-			    IsPullToRefreshEnabled="true" >
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Name}" Detail="{Binding Complete}">
-                <TextCell.ContextActions>
-                    <MenuItem Text="Delete" CommandParameter="{Binding .}" Clicked="OnDelete" IsDestructive="True"/>
-                    <MenuItem Text="Reset Complete" CommandParameter="{Binding .}" Clicked="OnReset"/>
-                                <!--Clicked="OnComplete"-->
-                </TextCell.ContextActions>
-            </TextCell> 
-            </DataTemplate>
-        </ListView.ItemTemplate>
-         </ListView>
-    </StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="M" Grid.Column="0" Clicked="MO_Clicked"/>
+                <Button Text="T" Grid.Column="1" Clicked="TU_Clicked"/>
+                <Button Text="W"  Grid.Column="2" Clicked="WE_Clicked"/>
+                <Button Text="T"  Grid.Column="3" Clicked="TH_Clicked"/>
+                <Button Text="F"  Grid.Column="4" Clicked="FR_Clicked"/>
+                <Button Text="S"  Grid.Column="5" Clicked="SA_Clicked"/>
+                <Button Text="S"  Grid.Column="6" Clicked="SU_Clicked"/>
+            </Grid>
+            <Label x:Name="todayText" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" Margin="0,10,0,10"/>
+
+            <!--<Slider x:Name="slider"
+                    
+                    Minimum="0"
+                    Maximum="100"
+            PropertyChanged="slider_PropertyChanged"
+            ValueChanged="slider_ValueChanged"
+            
+            VerticalOptions="CenterAndExpand" />-->
+            <!--<Label Text="{Binding GroupName}"  HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="5" />-->
+            <ListView x:Name="schedList" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding AttachedToDo.ToDo}" FontSize="Medium" HorizontalOptions="Start"/>
+                                <TimePicker Time="{Binding SendTimeSpan}" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
   </ContentPage>
 
 </TabbedPage>

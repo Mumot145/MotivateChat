@@ -20,9 +20,11 @@ namespace MotivationAdmin
         SqlConnection connection = new SqlConnection();
         FacebookUser facebookUser = new FacebookUser();
         private static User User = new User();
+        private Week week = new Week();
         static AzureDataService defaultInstance = new AzureDataService();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader reader;
+        
         private AzureDataService()
         {
             
@@ -66,16 +68,22 @@ namespace MotivationAdmin
             User = (User) AzureConnect(query, "User");
            // return _user;
         }
-        public Schedule GetSchedule(string Info)
+
+        
+        public void AddDaysToSchedule(int scheduleId, List<Day> dayList)
         {
-            Schedule _schedule = new Schedule();
-            string query = "";
+            string fullBuilder = "";
+            string builder = "";
 
-            query = "SELECT Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday FROM Schedule WHERE Id = '" + Info + "'";
+            foreach (var day in dayList)
+            {
+                builder = "('" + scheduleId + "', '"+ day.Id + "'), ";
+                fullBuilder = fullBuilder + builder;
+            }
+            fullBuilder = fullBuilder.Remove(fullBuilder.Length - 2);
 
-            _schedule = (Schedule)AzureConnect(query, "Schedule");
-            _schedule.Id = Convert.ToInt32(Info);
-            return _schedule;
+            string query = "INSERT INTO Schedule (TodoId, TodoWeekday) VALUES " + fullBuilder;
+            AzureConnect(query, "Edit");
         }
         public void RegisterUser(string facebookName, string facebookId)
         {
@@ -92,6 +100,40 @@ namespace MotivationAdmin
                 AddScheduleToGroup(lastId);
             }          
         }
+   
+        public int[] AddScheduleToMessage(List<TodoFullItem> toDoList)
+        {
+            string fullBuilder = "";
+            string builder="";
+            int[] allIds = new int[7];
+            int addedItems = 0;
+            foreach(var todo in toDoList)
+            {
+                builder = "('" + todo.AttachedToDo.Id + "', '"+todo.getTime+"'), ";
+                fullBuilder = fullBuilder + builder;
+                builder = "";
+                addedItems++;
+            }
+            fullBuilder = fullBuilder.Remove(fullBuilder.Length - 2);
+
+            string query = "INSERT INTO ToDoSchedule (Id, SendTime) VALUES " + fullBuilder+ "; SELECT SCOPE_IDENTITY();";
+            var passedback = (int)AzureConnect(query, "ToDoSchedule");
+            if (passedback > 0 && addedItems > 1)
+            {
+                for (var i = 0; i < addedItems; i++)
+                {
+                    allIds[i] = passedback - (addedItems -(i+1));
+                }
+                //AddUserToGroup(_user, lastId);
+                //AddScheduleToGroup(lastId);
+
+                return allIds;
+            } else
+            {
+                allIds[0] = passedback;
+                return allIds;
+            }
+        }
         public void AddUserToGroup(User _user, int _id)
         {
             string query = "INSERT INTO UserChatGroups (UserId, ChatGroupId) VALUES ('" + _user.Id + "', '" + _id + "')";
@@ -102,14 +144,7 @@ namespace MotivationAdmin
             string query = "INSERT INTO Schedule (Id) VALUES ('" + _id + "')";
             AzureConnect(query, "Edit");
         }
-        public void UpdateSchedule(Schedule _schedule)
-        {
-            string query = "UPDATE Schedule SET Monday = " + ((_schedule.Monday) ? 1 : 0) + ", Tuesday = " + ((_schedule.Tuesday) ? 1 : 0) + ", "
-                                + "Wednesday = " + ((_schedule.Wednesday) ? 1 : 0) + ", Thursday = " + ((_schedule.Thursday) ? 1 : 0) + ", "
-                                + "Friday = " + ((_schedule.Friday) ? 1 : 0) + ", Saturday = " + ((_schedule.Saturday) ? 1 : 0) + ", "
-                                + "Sunday = " + ((_schedule.Sunday) ? 1 : 0) + " WHERE Id = '" + _schedule.Id + "'";
-            AzureConnect(query, "Edit");
-        }
+
         public void ResetCompletion(string _userId)
         {
             string query = "UPDATE Users SET Complete = null WHERE Id = '" + _userId + "'";
@@ -132,10 +167,73 @@ namespace MotivationAdmin
 
                 _groupList = GetGroupUsers(_groupList);
                 _groupList = GetGroupToDos(_groupList);
+               // if(_groupList.Where(gl=>gl.))
+                _groupList = GetGroupDays(_groupList);
+                // _groupList = GetToDoSchedule(_groupList);
             }
 
 
             return _groupList;
+        }
+        public List<ChatGroup> GetGroupDays(List<ChatGroup> groupList)
+        {
+            string daySched = "";
+            string addToSched;
+            //ChatGroup cg = new ChatGroup();
+          //  List<TodoItem> toDoList = new List<TodoItem>();
+            if(groupList != null)
+            {
+                foreach (var g in groupList)
+                {
+                    if (g.ToDoList != null)
+                    {
+                        foreach (var td in g.ToDoList)
+                        {
+                            if (td.ScheduleId > 0)
+                            {                               
+                                addToSched = String.Format("{0}", td.ScheduleId);
+                                daySched = daySched + addToSched + ",";
+                            }
+                        }
+                    }
+                }
+                if(daySched != "")
+                {
+                    daySched = daySched.Remove(daySched.Length - 1);
+                    string query = "SELECT TodoId, TodoWeekday FROM Schedule WHERE TodoId IN (" + daySched + ") AND deleted != 'True'";
+                    List<TodoFullItem> todoList = (List<TodoFullItem>)AzureConnect(query, "ToDoDaysList");
+                    foreach (var gl in groupList)
+                    {
+                        if (gl != null && gl.ToDoList != null)
+                        {
+                            foreach (var g in gl.ToDoList)
+                            {
+                                //TodoItem todo = new TodoItem();
+                                if (g.ScheduleId > 0)
+                                {
+                                    Console.WriteLine("----------------------" + g.ScheduleId);
+                                    List<TodoFullItem> getScheduleDays = todoList.Where(td => td.ScheduleId == g.ScheduleId).ToList();
+                                    if (getScheduleDays != null)
+                                    {
+                                        foreach (var s in getScheduleDays)
+                                        {
+                                            g.toDoDays = s.toDoDays;
+                                            Console.WriteLine("g========>" + g.DayStr);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    return groupList;
+                }
+               
+            }
+
+            return groupList;
         }
         public List<ChatGroup> GetGroupUsers(List<ChatGroup> groupList)
         {
@@ -182,7 +280,7 @@ namespace MotivationAdmin
         {
             string groups = "";
             //ChatGroup cg = new ChatGroup();
-            List<TodoItem> toDoList = new List<TodoItem>();
+            List<TodoFullItem> toDoList = new List<TodoFullItem>();
 
             foreach (var g in groupList)
             {
@@ -192,23 +290,53 @@ namespace MotivationAdmin
                 groups = groups + g.Id + "', '";
             }
             groups = groups.Remove(groups.Length - 3);
-            string query = "SELECT id, text, groupId, complete, sendTime FROM ToDoItem WHERE groupId IN (" + groups + ") AND deleted != 'True'";
+            string query = "SELECT td.id, td.text, td.groupId, td.complete, tds.ScheduleDay, tds.SendTime FROM ToDoItem td LEFT JOIN ToDoSchedule tds ON td.id = tds.Id WHERE td.groupId IN (" + groups + ") AND td.deleted != 'True'";
             List<ChatGroup> chatGroupList = (List<ChatGroup>)AzureConnect(query, "ToDoList");
             foreach (var gl in groupList)
             {
-                List<TodoItem> td = chatGroupList.Where(cg => cg.Id == gl.Id).Select(x => x.ToDoList).FirstOrDefault();
+                List<TodoFullItem> td = chatGroupList.Where(cg => cg.Id == gl.Id).Select(x => x.ToDoList).FirstOrDefault();
                 gl.ToDoList = td;
 
             }
             return groupList;
             
         }
+        public List<ChatGroup> GetToDoSchedule(List<ChatGroup> groupList)
+        {
+            string groups = "";
+            //ChatGroup cg = new ChatGroup();
+            List<TodoFullItem> toDoList = new List<TodoFullItem>();
+
+            foreach (var g in groupList)
+            {
+                if (groups == "")
+                    groups = "'" + g.Id + "', '";
+
+                groups = groups + g.Id + "', '";
+            }
+            groups = groups.Remove(groups.Length - 3);
+            string query = "SELECT id, text, groupId, complete FROM toDoSchedule WHERE id IN (" + groups + ") AND deleted != 'True'";
+            List<ChatGroup> chatGroupList = (List<ChatGroup>)AzureConnect(query, "ToDoList");
+            foreach (var gl in groupList)
+            {
+                List<TodoFullItem> td = chatGroupList.Where(cg => cg.Id == gl.Id).Select(x => x.ToDoList).FirstOrDefault();
+                gl.ToDoList = td;
+
+            }
+            return groupList;
+
+        }
         public void DeleteFromGroup(int id, ChatGroup chatGroup)
         {
             string query = "DELETE FROM UserChatGroups WHERE UserId = '" + id.ToString() + "' AND ChatGroupId = '" + chatGroup.Id + "'";
             AzureConnect(query, "Edit");
         }
-
+        public void AddToSchedule(int id, ChatGroup chatGroup)
+        {
+            string query = "DELETE FROM UserChatGroups WHERE UserId = '" + id.ToString() + "' AND ChatGroupId = '" + chatGroup.Id + "'";
+            AzureConnect(query, "Edit");
+        }
+        
         private static readonly int[] RetriableClasses = { 13, 16, 17, 18, 19, 20, 21, 22, 24 };
 
         public object AzureConnect(string Query, string taskType)
@@ -264,9 +392,14 @@ namespace MotivationAdmin
                         } else if (taskType =="ToDoList")
                         {
                             returnValue = readToDoList(reader);
-                        } else if (taskType == "Schedule")
+                        }
+                        else if (taskType == "ToDoSchedule")
                         {
-                            returnValue = readSchedule(reader);
+                            returnValue = readLastScheduleIds(reader);
+                        }
+                        else if (taskType == "ToDoDaysList")
+                        {
+                            returnValue = readAllDays(reader);
                         }
                     }
                     
@@ -295,23 +428,27 @@ namespace MotivationAdmin
         }
         private List<ChatGroup> readToDoList(SqlDataReader _reader)
         {
-            List<TodoItem> todoList = new List<TodoItem>();
+            List<TodoFullItem> todoList = new List<TodoFullItem>();
             ChatGroup _chatGroup = new ChatGroup();
             List<ChatGroup> _chatGroupList = new List<ChatGroup>();
             if (reader != null)
             {
                 while (reader.Read())
                 {
-                    TodoItem toDo = new TodoItem();
-                    toDo.Id = String.Format("{0}", reader[0]);
-                    toDo.ToDo = String.Format("{0}", reader[1]);
-                    toDo.GroupId = String.Format("{0}", reader[2]);
-                    toDo.Done = Convert.ToBoolean(reader[3]);
-                    toDo.SendTime = String.Format("{0}", reader[4]);
-                    //toDo.GroupId = String.Format("{0}", reader[4]);
+                    TodoFullItem toDo = new TodoFullItem();
+                    toDo.AttachedToDo = new TodoItem();
+                    toDo.AttachedToDo.Id = String.Format("{0}", reader[0]);
+                    toDo.AttachedToDo.ToDo = String.Format("{0}", reader[1]);
+                    toDo.AttachedToDo.GroupId = String.Format("{0}", reader[2]);
+                    toDo.AttachedToDo.Done = Convert.ToBoolean(reader[3]);
+                    if (!reader.IsDBNull(4))
+                    {
+                        toDo.ScheduleId = Convert.ToInt32(reader[4]);
+                        toDo.SendTimeSpan = TimeSpan.Parse(String.Format("{0}", reader[5]));
+                    }
                     todoList.Add(toDo);
 
-                    _chatGroup.Id = Convert.ToInt32(toDo.GroupId);
+                    _chatGroup.Id = Convert.ToInt32(toDo.AttachedToDo.GroupId);
                     
                     var check = _chatGroupList.Any(item => item.Id == _chatGroup.Id);
 
@@ -340,26 +477,62 @@ namespace MotivationAdmin
             return _chatGroupList;
             
         }
-        private Schedule readSchedule(SqlDataReader _reader)
+        private List<TodoFullItem> readAllDays(SqlDataReader _reader)
         {
-            Schedule schedule = new Schedule();
+            List<TodoFullItem> todoList = new List<TodoFullItem>();
+            TodoFullItem todo;
+            TodoFullItem lastTodo = new TodoFullItem();
+            int lastId = 0;
+           // Week week = new Week();
             if (reader != null)
             {
                 while (reader.Read())
                 {
+                    
+                    var id = Convert.ToInt32(reader[0]);
+                    var other = Convert.ToInt32(reader[1]);
+                    Console.WriteLine("id" + id);
+                    Console.WriteLine("other" + other);
+                    //Day addDay = new Day();
+                    //int schedId = Convert.ToInt32(reader[0]);
+                    //if (schedId == lastId)
+                   // {
+                    if (id == lastId)
+                    {
+                        lastTodo.toDoDays.Add(week.getDay(other));
+                    }
+                    else
+                    {                        
+                        todo = new TodoFullItem();
+                        todo.AttachedToDo = new TodoItem();
+                        todo.ScheduleId = id;
+                        Day d = new Day();
+                        d = week.getDay(other);
+                        todo.toDoDays = new List<Day>();
+                        todo.toDoDays.Add(d);
+                        //if (lastId > 0)
+                       // {
+                       //     Console.WriteLine("added > 0+" + lastTodo.ScheduleId);
+                       //     todoList.Add(lastTodo);
+                       // } else
+                      //  {
+                            Console.WriteLine("added = 0 +" + todo.ScheduleId);
+                            todoList.Add(todo);
+                       // }
+                        lastTodo = todo;
 
-                    schedule.Monday = Convert.ToBoolean(reader[0]);
-                    schedule.Tuesday = Convert.ToBoolean(reader[1]);
-                    schedule.Wednesday = Convert.ToBoolean(reader[2]);
-                    schedule.Thursday = Convert.ToBoolean(reader[3]);
-                    schedule.Friday = Convert.ToBoolean(reader[4]);
-                    schedule.Saturday = Convert.ToBoolean(reader[5]);
-                    schedule.Sunday = Convert.ToBoolean(reader[6]);
+                    }
+                    lastId = id;
+                }
+                foreach (var td in todoList)
+                {
+                    Console.WriteLine("td--" + td.AttachedToDo.ToDo);
                 }
             }
             connection.Close();
-            return schedule;
+            return todoList;
         }
+      
         private int readLastId(SqlDataReader _reader)
         {
             int _lastId = 0;          
@@ -368,6 +541,22 @@ namespace MotivationAdmin
                 while (reader.Read())
                 {
                     _lastId = Convert.ToInt32(reader[0]);
+                }
+            }
+
+            connection.Close();
+            return _lastId;
+        }
+        private int readLastScheduleIds(SqlDataReader _reader)
+        {
+
+            int _lastId = 0;
+            if (_reader != null)
+            {
+                while (reader.Read())
+                {
+
+                    _lastId = Convert.ToInt32(String.Format("{0}", reader[0]));                 
                 }
             }
 
