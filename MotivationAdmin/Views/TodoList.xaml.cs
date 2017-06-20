@@ -58,7 +58,7 @@ namespace MotivationAdmin
 
         public async void OnAdd(object sender, EventArgs e)
         {
-            var todo = new TodoItem { ToDo = newItemName.Text, GroupId = thisChatGroup.Id.ToString(), SendTime = newItemTime.Time.ToString()};
+            var todo = new TodoItem { ToDo = newItemName.Text, GroupId = thisChatGroup.Id.ToString()};
             await AddItem(todo);
            // Console.WriteLine("we need to add this time "+newItemTime.Time);
             newItemName.Text = string.Empty;
@@ -81,7 +81,7 @@ namespace MotivationAdmin
                 else
                 {
                     // Windows, not all platforms support the Context Actions yet
-                    if (await DisplayAlert("Delete Message?", "Do you wish to delete " + todo.ToDo + " at " + todo.SendTime+"?", "Delete", "Cancel"))
+                    if (await DisplayAlert("Delete Message?", "Do you wish to delete " + todo.ToDo + "?", "Delete", "Cancel"))
                     {
                         await DeleteItem(todo);
                     }

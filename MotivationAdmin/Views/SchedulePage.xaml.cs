@@ -1,5 +1,5 @@
 ﻿using MotivationAdmin.Models;
-using MotivationAdmin.ViewModels;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,27 +14,40 @@ namespace MotivationAdmin.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SchedulePage : ContentPage
 	{
-        ScheduleViewModel thisGroupSchedule = new ScheduleViewModel();
-        AzureDataService _azure;
-		public SchedulePage (ScheduleViewModel svm)
+        private string[] dayNames = new string[7];
+        public event EventHandler OnAddSchedule;
+        SelectMultipleBasePage<Day> selectPage;
+        TodoFullItem thisItem = new TodoFullItem();
+        public SchedulePage (TodoFullItem _todoItem)
 		{
-            thisGroupSchedule = svm;
-            BindingContext = thisGroupSchedule;
+            thisItem = _todoItem;
+            Week week = new Week();
+            Console.WriteLine("IN SCHEDULE +" + _todoItem.AttachedToDo.ToDo);
             InitializeComponent();
-		}
-        void updateSchedule(object sender, EventArgs e)
-        {
-            
-            Schedule _schedule = new Schedule();
-            _schedule.Id = thisGroupSchedule.schedule.Id;
-            _schedule.Monday = Convert.ToBoolean(Monday.IsToggled);
-            _schedule.Tuesday = Convert.ToBoolean(Tuesday.IsToggled);
-            _schedule.Wednesday = Convert.ToBoolean(Wednesday.IsToggled);
-            _schedule.Thursday = Convert.ToBoolean(Thursday.IsToggled);
-            _schedule.Friday = Convert.ToBoolean(Friday.IsToggled);
-            _schedule.Saturday = Convert.ToBoolean(Saturday.IsToggled);
-            _schedule.Sunday = Convert.ToBoolean(Sunday.IsToggled);
-            _azure.UpdateSchedule(_schedule);
+            List<Day> days = new List<Day>();
+            StackLayout stack = new StackLayout();
+            Button btn = new Button();
+            btn.Text = "Add Days To Message";
+            selectPage = new SelectMultipleBasePage<Day>(week.aWeek);
+            stack.Children.Add(selectPage);
+            stack.Children.Add(btn);
+            btn.Clicked += AddingDaysToMessage;
+            Content = stack;
+
         }
+        private void AddingDaysToMessage(object sender, EventArgs e)
+        {
+            OnAddSchedule(this, new EventArgs());
+        }
+        public TodoFullItem ProvideSelected()
+        {
+            List<Day> days = selectPage.GetSelection();
+            thisItem.toDoDays = days;
+            return thisItem;
+        }
+        
+
     }
+    
+
 }

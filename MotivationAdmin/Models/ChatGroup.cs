@@ -14,8 +14,7 @@ namespace MotivationAdmin.Models
         public int Id { get; set; }
         public string GroupName { get; set; }
         private List<User> users = new List<User>();
-        public List<TodoItem> toDos = new List<TodoItem>();
-
+        private List<TodoFullItem> allToDos = new List<TodoFullItem>();
         public event PropertyChangedEventHandler PropertyChanged;
 
         public List<User> UserList
@@ -23,12 +22,12 @@ namespace MotivationAdmin.Models
             get { return users; }
             set { users = value; }
         }
-        public List<TodoItem> ToDoList
+        public List<TodoFullItem> ToDoList
         {
-            get { return toDos; }
-            set { toDos = value; }
+            get { return allToDos; }
+            set { allToDos = value; }
         }
-            
+        
 
     }
 }

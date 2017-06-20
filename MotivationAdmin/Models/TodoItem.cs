@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace MotivationAdmin.Models
 {
@@ -11,7 +13,7 @@ namespace MotivationAdmin.Models
         string todo;
 		bool done;
         bool deleted;
-        string sendTime;
+        
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id
@@ -32,12 +34,7 @@ namespace MotivationAdmin.Models
             get { return group; }
             set { group = value; }
         }
-        [JsonProperty(PropertyName = "sendTime")]
-        public string SendTime
-        {
-            get { return sendTime; }
-            set { sendTime = value; }
-        }
+
         [JsonProperty(PropertyName = "complete")]
 		public bool Done
 		{
@@ -50,6 +47,7 @@ namespace MotivationAdmin.Models
             get { return deleted; }
             set { deleted = value; }
         }
+
         [Version]
         public string Version { get; set; }
 	}

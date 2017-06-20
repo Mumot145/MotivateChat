@@ -75,9 +75,9 @@ namespace MotivationChat.Droid
 
                 JObject templates = new JObject();
                 templates["genericMessage"] = new JObject
-        {
-            {"body", templateBodyGCM}
-        };
+                {
+                    {"body", templateBodyGCM}
+                };
 
                 await push.RegisterAsync(RegistrationID, templates);
                 Log.Info("Push Installation Id", push.InstallationId.ToString());

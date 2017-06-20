@@ -9,7 +9,9 @@
     <Import_RootNamespace>MotivationAdmin</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Schedule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Day.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TodoFullItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Week.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MotiveApp.xaml.cs">
       <DependentUpon>MotiveApp.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -20,8 +22,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\ChatGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TodoItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Multiselect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TodoItemManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScheduleViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AddMessages.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\GroupDetails.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>GroupDetails.xaml</DependentUpon>
@@ -40,11 +45,20 @@
       <DependentUpon>NewUser.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PlanPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ScheduleMessagePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\SchedulePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\TodoList.xaml.cs">
       <DependentUpon>TodoList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\UserPage.xaml.cs">
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -87,5 +101,26 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)HTTP\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PlanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AddMessages.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ScheduleMessagePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\UserPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
