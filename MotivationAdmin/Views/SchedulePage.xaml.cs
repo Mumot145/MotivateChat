@@ -22,7 +22,6 @@ namespace MotivationAdmin.Views
 		{
             thisItem = _todoItem;
             Week week = new Week();
-            Console.WriteLine("IN SCHEDULE +" + _todoItem.AttachedToDo.ToDo);
             InitializeComponent();
             List<Day> days = new List<Day>();
             StackLayout stack = new StackLayout();
@@ -44,10 +43,6 @@ namespace MotivationAdmin.Views
             List<Day> days = selectPage.GetSelection();
             thisItem.toDoDays = days;
             return thisItem;
-        }
-        
-
+        }     
     }
-    
-
 }

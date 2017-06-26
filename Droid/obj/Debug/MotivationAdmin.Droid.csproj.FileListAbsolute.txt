@@ -305,6 +305,8 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\GCM.Client.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MR.Gestures.Android.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MR.Gestures.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Newtonsoft.Json.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\PCLCrypto.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\PInvoke.BCrypt.dll
@@ -346,6 +348,8 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\FormsViewGroup.dll.md
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.SQLiteStore.xml
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MR.Gestures.xml
+C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MR.Gestures.Android.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Newtonsoft.Json.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\PCLCrypto.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\PInvoke.BCrypt.xml
@@ -363,6 +367,7 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Platfor
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Annotations.dll.stamp
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.CardView.dll.stamp
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll.stamp
@@ -391,6 +396,11 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.PlanPage.xaml.g.cs
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.AddMessages.xaml.g.cs
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.ScheduleMessagePage.xaml.g.cs
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.UserPage.xaml.g.cs
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.MainPage.xaml.g.cs
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.LoadingPage.xaml.g.cs
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.SoloChatList.xaml.g.cs
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.UserInfo.xaml.g.cs
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.pdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\bin\com.xamarin.sample.MotivationAdmin.apk
@@ -401,7 +411,6 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\res\drawable-xxhdpi\i
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\R.cs.flag
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\uploadflags.txt
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MotivationAdmin.dll.mdb
-C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\I18N.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\I18N.West.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\Java.Interop.dll.mdb

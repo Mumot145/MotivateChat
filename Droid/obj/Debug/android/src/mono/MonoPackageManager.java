@@ -104,6 +104,8 @@ class MonoPackageManager_Resources {
 		"Microsoft.WindowsAzure.Mobile.dll",
 		"Microsoft.WindowsAzure.Mobile.Ext.dll",
 		"Microsoft.WindowsAzure.Mobile.SQLiteStore.dll",
+		"MR.Gestures.Android.dll",
+		"MR.Gestures.dll",
 		"Newtonsoft.Json.dll",
 		"PCLCrypto.dll",
 		"PInvoke.BCrypt.dll",

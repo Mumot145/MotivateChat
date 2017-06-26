@@ -21,7 +21,6 @@ namespace MotivationAdmin.Views
 		{
 			InitializeComponent();
             _thisUser = admin;
-            Debug.WriteLine("in new group");
         }
         async void AddGroup(object sender, EventArgs e)
         {
@@ -29,17 +28,12 @@ namespace MotivationAdmin.Views
             if (!String.IsNullOrEmpty(ngChat))
             {
                 _azure.AddNewGroup(ngChat, _thisUser);
-                //base.OnBackPressed();
             }
             else
             {
-                Debug.WriteLine("Group Name is EMPTY!");
                 notFound.IsVisible = true;
                 return;
             }
-
-
         }
     }
-
 }

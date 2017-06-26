@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Diagnostics;
 using Xamarin.Auth;
+using MotivationAdmin.Views;
 
 namespace MotivationAdmin
 {
@@ -33,7 +34,7 @@ namespace MotivationAdmin
             if (_account != null)
                 aToken = _account.Properties["access_token"];
             // The root page of your application
-            _navPage = new NavigationPage(new GroupList(aToken));
+            _navPage = new NavigationPage(new LoadingPage(aToken));
             MainPage = _navPage;
         }
         public static bool IsLoggedIn

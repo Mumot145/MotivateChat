@@ -120,10 +120,12 @@ namespace MotivationAdmin
                 
 
         }
-        void OnClick(object sender, EventArgs e)
+        async void OnClick(object sender, EventArgs e)
         {
-            ToolbarItem tbi = (ToolbarItem)sender;
-            this.DisplayAlert("Selected!", tbi.Name, "OK");
+            //ToolbarItem tbi = (ToolbarItem)sender;
+            //this.DisplayAlert("Selected!", tbi.Name, "OK");
+          //  UserPage up = new UserPage(_currentChatGroup);
+           // await Navigation.PushAsync(up);
         }
         async void AddNewMessages(object sender, EventArgs e)
         {

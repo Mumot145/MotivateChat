@@ -22,8 +22,6 @@ namespace MotivationAdmin
             service = AzureDataService.DefaultService;
             manager = TodoItemManager.DefaultManager;
             manager.SetGroup(_chatGroup);
-            Console.WriteLine("starting todo");
-            // OnPlatform<T> doesn't currently support the "Windows" target platform, so we have this check here.
             if (manager.IsOfflineEnabled &&
                 (Xamarin.Forms.Device.OS == TargetPlatform.Windows || Xamarin.Forms.Device.OS == TargetPlatform.WinPhone))
             {
@@ -33,16 +31,10 @@ namespace MotivationAdmin
                     HeightRequest = 30
                 };
                 syncButton.Clicked += OnSyncItems;
-
                 buttonsPanel.Children.Add(syncButton);
             }
-            // Track whether the user has authenticated.
-
         }
-        
-       
 
-        // Data methods
         async Task AddItem(TodoItem item)
         {
             await manager.SaveTaskAsync(item);
@@ -60,7 +52,6 @@ namespace MotivationAdmin
         {
             var todo = new TodoItem { ToDo = newItemName.Text, GroupId = thisChatGroup.Id.ToString()};
             await AddItem(todo);
-           // Console.WriteLine("we need to add this time "+newItemTime.Time);
             newItemName.Text = string.Empty;
             newItemName.Unfocus();
         }

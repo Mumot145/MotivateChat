@@ -27,34 +27,23 @@ namespace MotivationAdmin
         FacebookUser facebookUser = new FacebookUser();
         AzureDataService service;
         List<ChatGroup> thisGroupList = new List<ChatGroup>();
-
         private string token;
-        public GroupList(string _aToken)
+        public GroupList(List<ChatGroup> _thisGroupList)
         {           
             InitializeComponent();
-            token = _aToken;
-            //var tbi = new ToolbarItem("+", "plus.png", () =>
-            //{                
-            //    var todoPage = new NewUser(_chatGroup);
-            //    Navigation.PushAsync(todoPage);
-            //}, 0, 0);
-            //tbi.Order = ToolbarItemOrder.Secondary;  // forces it to appear in menu on Android
-            //ToolbarItems.Add(tbi);
-            //BindingContext = new List<ChatGroup>();
+            thisGroupList = _thisGroupList;
             service = AzureDataService.DefaultService;
             var tbi = new ToolbarItem("Add Group","", () =>
-            {
-                
+            {            
                 var newGroupPage = new NewGroup(currentUser);
                 Navigation.PushAsync(newGroupPage);
             }, 0, 0);
-            tbi.Order = ToolbarItemOrder.Secondary;  // forces it to appear in menu on Android
+            tbi.Order = ToolbarItemOrder.Primary;  // forces it to appear in menu on Android
             ToolbarItems.Add(tbi);
-
+            groupList.ItemsSource = thisGroupList;
         }
         void OnRefresh(object sender, RefreshEventArgs e)
         {
-            refresh();
             groupList.IsRefreshing = false;
         }
         void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -66,65 +55,10 @@ namespace MotivationAdmin
                 return;
             ChatGroup cg = (ChatGroup)e.SelectedItem;
             await Navigation.PushAsync(new GroupDetails(cg, currentUser));
-
-            //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            groupList.ItemsSource = null;
-            Console.WriteLine("appearing checking token--" + MotiveApp.Token);
-            // Refresh items only when authenticated.
-            if (String.IsNullOrEmpty(token))
-            {
-                await Navigation.PushModalAsync(new LoginPage());
-            } else
-            {
-                await service.GetFacebookProfileAsync(token);
-                service.SetUser("fbId");
-                currentUser = service.GetUser();
-                if(currentUser == null)
-                {
-                    service.RegisterUser(facebookUser.Name, facebookUser.Id);
-                    currentUser = service.GetUser();
-                    if (currentUser == null)
-                        return;                     
-                }
-                refresh();                                            
-            }
-        }
-        void refresh()
-        {
-            var info = service.GetGroups(currentUser.Id);
-            Debug.WriteLine("refreshing rn =="+ info.FirstOrDefault());
-            foreach(var i in info)
-            {
-                Console.WriteLine(" i.Id ==" + i.Id);
-                Console.WriteLine(" i.GroupName ==" + i.GroupName);
-                //Console.WriteLine(" i.UserList.Count ==" + i.UserList.Count);
-                if(i.ToDoList != null)
-                {
-                    Console.WriteLine(" i.ToDoList == exists !");
-                    foreach(var td in i.ToDoList)
-                    {
-                        if(td.toDoDays != null)
-                            Console.WriteLine(" td.tododays count == "+ td.toDoDays.Count);
-                    }
-                } else
-                {
-                    Console.WriteLine(" i.ToDoList == empty!");
-                }
-                
-                
-            }
+        
 
-            if (info != null)
-            {
-                groupList.ItemsSource = info;
-                thisGroupList = info;
-            }
-        }
         public async Task GetFacebookProfileAsync(string accessToken)
         {
             var requestUrl = "https://graph.facebook.com/v2.8/me/"
@@ -133,7 +67,6 @@ namespace MotivationAdmin
             var httpClient = new HttpClient();
             var userJson = await httpClient.GetStringAsync(requestUrl);
             facebookUser = JsonConvert.DeserializeObject<FacebookUser>(userJson);
-        }
-      
+        }      
     }
 }

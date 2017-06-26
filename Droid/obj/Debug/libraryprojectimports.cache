@@ -4,6 +4,7 @@
   <ResolvedResourceDirectories>
     <ResolvedResourceDirectory>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\GCM.Client\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\Microsoft.WindowsAzure.Mobile.Ext\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\MR.Gestures.Android\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\PCLCrypto\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\SQLitePCLRaw.batteries_green\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\SQLitePCLRaw.batteries_v2\library_project_imports\res</ResolvedResourceDirectory>
@@ -23,6 +24,7 @@
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\GCM.Client\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Microsoft.WindowsAzure.Mobile.Ext\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\__library_projects__\MR.Gestures.Android\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\PCLCrypto\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\SQLitePCLRaw.batteries_green\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\SQLitePCLRaw.batteries_v2\library_project_imports\assets</ResolvedAssetDirectory>
@@ -37,6 +39,7 @@
   <ResolvedResourceDirectoryStamps>
     <ResolvedResourceDirectoryStamp>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\GCM.Client.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\Microsoft.WindowsAzure.Mobile.Ext.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\MR.Gestures.Android.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\PCLCrypto.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\SQLitePCLRaw.batteries_green.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\__library_projects__\SQLitePCLRaw.batteries_v2.stamp</ResolvedResourceDirectoryStamp>

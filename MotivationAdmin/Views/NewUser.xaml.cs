@@ -20,7 +20,6 @@ namespace MotivationAdmin.Views
 		{
 			InitializeComponent ();
             chatGroup = _chatGroup;
-
         }
         async void AddMember(object sender, EventArgs e)
         {
@@ -28,24 +27,16 @@ namespace MotivationAdmin.Views
             if (!String.IsNullOrEmpty(ngMember))
             {
                 var user = _azure.GetUser();
-                Debug.WriteLine(chatGroup.GroupName);
-
                 if(user != null )
                 {
-                    //Debug.WriteLine("ID found=" + id);
                     _azure.AddUserToGroup(user, chatGroup.Id);
-                }
-                
+                    await Navigation.PopAsync();
+                }          
             } else
             {
-                Debug.WriteLine("user not found");
                 notFound.IsVisible = true;
                 return;
-            }
-            
-              
+            }   
         }
-
-
     }
 }

@@ -1,5 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MotivationAdmin.Views.UserPage">
+             x:Class="MotivationAdmin.Views.UserPage"
+             NavigationPage.HasBackButton="False"
+             Title="All">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Group" Activated="OnClick" Order="Primary" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        
+            <!--<Label x:Name="isEmpty" IsVisible="False" Text="EMPTY"/>-->
+        <ListView x:Name="userList" ItemSelected="userList_ItemSelected" AbsoluteLayout.LayoutBounds="0, 0,1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="Start"/>
+                                <Label Text="{Binding getGroupType}" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        
+
+        <Button    AbsoluteLayout.LayoutBounds="0.90, 0.90, 0.25, 0.10"
+                   BackgroundColor="Green"
+                   BorderRadius="50"
+                   Clicked="Button_Clicked"
+                   Text="+"
+                   AbsoluteLayout.LayoutFlags="All" />
+    </AbsoluteLayout>
 </ContentPage>

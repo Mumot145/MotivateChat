@@ -1,11 +1,3 @@
-MotivationAdmin.Droid.LoginPageRenderer, MotivationAdmin;md52568d389e34b60fe2d8302d7dd05e7b2.LoginPageRenderer
-MotivationAdmin.Droid.LoginPageRenderer, MotivationAdmin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52568d389e34b60fe2d8302d7dd05e7b2.LoginPageRenderer
-MotivationAdmin.Droid.LoginPageRenderer;md52568d389e34b60fe2d8302d7dd05e7b2.LoginPageRenderer
-motivationadmin.droid.LoginPageRenderer;md52568d389e34b60fe2d8302d7dd05e7b2.LoginPageRenderer
-MotivationAdmin.Droid.MainActivity, MotivationAdmin;md52568d389e34b60fe2d8302d7dd05e7b2.MainActivity
-MotivationAdmin.Droid.MainActivity, MotivationAdmin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52568d389e34b60fe2d8302d7dd05e7b2.MainActivity
-MotivationAdmin.Droid.MainActivity;md52568d389e34b60fe2d8302d7dd05e7b2.MainActivity
-motivationadmin.droid.MainActivity;md52568d389e34b60fe2d8302d7dd05e7b2.MainActivity
 MotivationChat.Droid.PushHandlerBroadcastReceiver, MotivationAdmin;md50afeea0e3b6fbe8d21d384e9c33eae42.PushHandlerBroadcastReceiver
 MotivationChat.Droid.PushHandlerBroadcastReceiver, MotivationAdmin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md50afeea0e3b6fbe8d21d384e9c33eae42.PushHandlerBroadcastReceiver
 MotivationChat.Droid.PushHandlerBroadcastReceiver;md50afeea0e3b6fbe8d21d384e9c33eae42.PushHandlerBroadcastReceiver
@@ -14,6 +6,18 @@ MotivationChat.Droid.GcmService, MotivationAdmin;md50afeea0e3b6fbe8d21d384e9c33e
 MotivationChat.Droid.GcmService, MotivationAdmin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md50afeea0e3b6fbe8d21d384e9c33eae42.GcmService
 MotivationChat.Droid.GcmService;md50afeea0e3b6fbe8d21d384e9c33eae42.GcmService
 motivationchat.droid.GcmService;md50afeea0e3b6fbe8d21d384e9c33eae42.GcmService
+MotivationAdmin.Droid.CustomSwitchRenderer, MotivationAdmin;md52568d389e34b60fe2d8302d7dd05e7b2.CustomSwitchRenderer
+MotivationAdmin.Droid.CustomSwitchRenderer, MotivationAdmin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52568d389e34b60fe2d8302d7dd05e7b2.CustomSwitchRenderer
+MotivationAdmin.Droid.CustomSwitchRenderer;md52568d389e34b60fe2d8302d7dd05e7b2.CustomSwitchRenderer
+motivationadmin.droid.CustomSwitchRenderer;md52568d389e34b60fe2d8302d7dd05e7b2.CustomSwitchRenderer
+MotivationAdmin.Droid.LoginPageRenderer, MotivationAdmin;md52568d389e34b60fe2d8302d7dd05e7b2.LoginPageRenderer
+MotivationAdmin.Droid.LoginPageRenderer, MotivationAdmin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52568d389e34b60fe2d8302d7dd05e7b2.LoginPageRenderer
+MotivationAdmin.Droid.LoginPageRenderer;md52568d389e34b60fe2d8302d7dd05e7b2.LoginPageRenderer
+motivationadmin.droid.LoginPageRenderer;md52568d389e34b60fe2d8302d7dd05e7b2.LoginPageRenderer
+MotivationAdmin.Droid.MainActivity, MotivationAdmin;md52568d389e34b60fe2d8302d7dd05e7b2.MainActivity
+MotivationAdmin.Droid.MainActivity, MotivationAdmin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52568d389e34b60fe2d8302d7dd05e7b2.MainActivity
+MotivationAdmin.Droid.MainActivity;md52568d389e34b60fe2d8302d7dd05e7b2.MainActivity
+motivationadmin.droid.MainActivity;md52568d389e34b60fe2d8302d7dd05e7b2.MainActivity
 Gcm.Client.GcmBroadcastReceiverBase`1, GCM.Client;md5214eafb7e7b3b7fcc363a68a6358563f.GcmBroadcastReceiverBase_1
 Gcm.Client.GcmBroadcastReceiverBase`1, GCM.Client, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;md5214eafb7e7b3b7fcc363a68a6358563f.GcmBroadcastReceiverBase_1
 Gcm.Client.GcmBroadcastReceiverBase`1;md5214eafb7e7b3b7fcc363a68a6358563f.GcmBroadcastReceiverBase_1
@@ -46,6 +50,138 @@ Xamarin.Auth._MobileServices.WebAuthenticatorActivity/Client, Microsoft.WindowsA
 Xamarin.Auth._MobileServices.WebAuthenticatorActivity+Client, Microsoft.WindowsAzure.Mobile.Ext, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md56beaf3ca16f9b29c56822643de3b05fa.WebAuthenticatorActivity_Client
 Xamarin.Auth._MobileServices.WebAuthenticatorActivity.Client;md56beaf3ca16f9b29c56822643de3b05fa.WebAuthenticatorActivity_Client
 xamarin.auth._mobileservices.WebAuthenticatorActivity_Client;md56beaf3ca16f9b29c56822643de3b05fa.WebAuthenticatorActivity_Client
+MR.Gestures.Android.TapGestureListener, MR.Gestures.Android;md5cb720b831f9c796cadc95c6511b7d836.TapGestureListener
+MR.Gestures.Android.TapGestureListener, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5cb720b831f9c796cadc95c6511b7d836.TapGestureListener
+MR.Gestures.Android.TapGestureListener;md5cb720b831f9c796cadc95c6511b7d836.TapGestureListener
+mr.gestures.android.TapGestureListener;md5cb720b831f9c796cadc95c6511b7d836.TapGestureListener
+MR.Gestures.Android.DownUpGestureListener, MR.Gestures.Android;md5cb720b831f9c796cadc95c6511b7d836.DownUpGestureListener
+MR.Gestures.Android.DownUpGestureListener, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5cb720b831f9c796cadc95c6511b7d836.DownUpGestureListener
+MR.Gestures.Android.DownUpGestureListener;md5cb720b831f9c796cadc95c6511b7d836.DownUpGestureListener
+mr.gestures.android.DownUpGestureListener;md5cb720b831f9c796cadc95c6511b7d836.DownUpGestureListener
+MR.Gestures.Android.SimpleGestureListener, MR.Gestures.Android;md5cb720b831f9c796cadc95c6511b7d836.SimpleGestureListener
+MR.Gestures.Android.SimpleGestureListener, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5cb720b831f9c796cadc95c6511b7d836.SimpleGestureListener
+MR.Gestures.Android.SimpleGestureListener;md5cb720b831f9c796cadc95c6511b7d836.SimpleGestureListener
+mr.gestures.android.SimpleGestureListener;md5cb720b831f9c796cadc95c6511b7d836.SimpleGestureListener
+MR.Gestures.Android.Renderers.AppCompatButtonRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatButtonRenderer
+MR.Gestures.Android.Renderers.AppCompatButtonRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatButtonRenderer
+MR.Gestures.Android.Renderers.AppCompatButtonRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatButtonRenderer
+mr.gestures.android.renderers.AppCompatButtonRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatButtonRenderer
+MR.Gestures.Android.Renderers.AppCompatFrameRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatFrameRenderer
+MR.Gestures.Android.Renderers.AppCompatFrameRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatFrameRenderer
+MR.Gestures.Android.Renderers.AppCompatFrameRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatFrameRenderer
+mr.gestures.android.renderers.AppCompatFrameRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatFrameRenderer
+MR.Gestures.Android.Renderers.AppCompatPickerRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatPickerRenderer
+MR.Gestures.Android.Renderers.AppCompatPickerRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatPickerRenderer
+MR.Gestures.Android.Renderers.AppCompatPickerRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatPickerRenderer
+mr.gestures.android.renderers.AppCompatPickerRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatPickerRenderer
+MR.Gestures.Android.Renderers.AppCompatSwitchRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatSwitchRenderer
+MR.Gestures.Android.Renderers.AppCompatSwitchRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatSwitchRenderer
+MR.Gestures.Android.Renderers.AppCompatSwitchRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatSwitchRenderer
+mr.gestures.android.renderers.AppCompatSwitchRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AppCompatSwitchRenderer
+MR.Gestures.Android.Renderers.ActivityIndicatorRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.ActivityIndicatorRenderer
+MR.Gestures.Android.Renderers.ActivityIndicatorRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.ActivityIndicatorRenderer
+MR.Gestures.Android.Renderers.ActivityIndicatorRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ActivityIndicatorRenderer
+mr.gestures.android.renderers.ActivityIndicatorRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ActivityIndicatorRenderer
+MR.Gestures.Android.Renderers.BoxViewRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.BoxViewRenderer
+MR.Gestures.Android.Renderers.BoxViewRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.BoxViewRenderer
+MR.Gestures.Android.Renderers.BoxViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.BoxViewRenderer
+mr.gestures.android.renderers.BoxViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.BoxViewRenderer
+MR.Gestures.Android.Renderers.ButtonRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.ButtonRenderer
+MR.Gestures.Android.Renderers.ButtonRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.ButtonRenderer
+MR.Gestures.Android.Renderers.ButtonRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ButtonRenderer
+mr.gestures.android.renderers.ButtonRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ButtonRenderer
+MR.Gestures.Android.Renderers.DatePickerRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.DatePickerRenderer
+MR.Gestures.Android.Renderers.DatePickerRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.DatePickerRenderer
+MR.Gestures.Android.Renderers.DatePickerRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.DatePickerRenderer
+mr.gestures.android.renderers.DatePickerRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.DatePickerRenderer
+MR.Gestures.Android.Renderers.EditorRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.EditorRenderer
+MR.Gestures.Android.Renderers.EditorRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.EditorRenderer
+MR.Gestures.Android.Renderers.EditorRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.EditorRenderer
+mr.gestures.android.renderers.EditorRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.EditorRenderer
+MR.Gestures.Android.Renderers.EntryRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.EntryRenderer
+MR.Gestures.Android.Renderers.EntryRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.EntryRenderer
+MR.Gestures.Android.Renderers.EntryRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.EntryRenderer
+mr.gestures.android.renderers.EntryRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.EntryRenderer
+MR.Gestures.Android.Renderers.FrameRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.FrameRenderer
+MR.Gestures.Android.Renderers.FrameRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.FrameRenderer
+MR.Gestures.Android.Renderers.FrameRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.FrameRenderer
+mr.gestures.android.renderers.FrameRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.FrameRenderer
+MR.Gestures.Android.Renderers.ImageRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.ImageRenderer
+MR.Gestures.Android.Renderers.ImageRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.ImageRenderer
+MR.Gestures.Android.Renderers.ImageRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ImageRenderer
+mr.gestures.android.renderers.ImageRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ImageRenderer
+MR.Gestures.Android.Renderers.LabelRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.LabelRenderer
+MR.Gestures.Android.Renderers.LabelRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.LabelRenderer
+MR.Gestures.Android.Renderers.LabelRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.LabelRenderer
+mr.gestures.android.renderers.LabelRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.LabelRenderer
+MR.Gestures.Android.Renderers.ListViewRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.ListViewRenderer
+MR.Gestures.Android.Renderers.ListViewRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.ListViewRenderer
+MR.Gestures.Android.Renderers.ListViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ListViewRenderer
+mr.gestures.android.renderers.ListViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ListViewRenderer
+MR.Gestures.Android.Renderers.PageRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.PageRenderer
+MR.Gestures.Android.Renderers.PageRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.PageRenderer
+MR.Gestures.Android.Renderers.PageRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.PageRenderer
+mr.gestures.android.renderers.PageRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.PageRenderer
+MR.Gestures.Android.Renderers.PickerRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.PickerRenderer
+MR.Gestures.Android.Renderers.PickerRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.PickerRenderer
+MR.Gestures.Android.Renderers.PickerRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.PickerRenderer
+mr.gestures.android.renderers.PickerRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.PickerRenderer
+MR.Gestures.Android.Renderers.ProgressBarRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.ProgressBarRenderer
+MR.Gestures.Android.Renderers.ProgressBarRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.ProgressBarRenderer
+MR.Gestures.Android.Renderers.ProgressBarRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ProgressBarRenderer
+mr.gestures.android.renderers.ProgressBarRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ProgressBarRenderer
+MR.Gestures.Android.Renderers.ScrollViewRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.ScrollViewRenderer
+MR.Gestures.Android.Renderers.ScrollViewRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.ScrollViewRenderer
+MR.Gestures.Android.Renderers.ScrollViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ScrollViewRenderer
+mr.gestures.android.renderers.ScrollViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ScrollViewRenderer
+MR.Gestures.Android.Renderers.SearchBarRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.SearchBarRenderer
+MR.Gestures.Android.Renderers.SearchBarRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.SearchBarRenderer
+MR.Gestures.Android.Renderers.SearchBarRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.SearchBarRenderer
+mr.gestures.android.renderers.SearchBarRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.SearchBarRenderer
+MR.Gestures.Android.Renderers.SliderRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.SliderRenderer
+MR.Gestures.Android.Renderers.SliderRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.SliderRenderer
+MR.Gestures.Android.Renderers.SliderRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.SliderRenderer
+mr.gestures.android.renderers.SliderRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.SliderRenderer
+MR.Gestures.Android.Renderers.StepperRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.StepperRenderer
+MR.Gestures.Android.Renderers.StepperRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.StepperRenderer
+MR.Gestures.Android.Renderers.StepperRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.StepperRenderer
+mr.gestures.android.renderers.StepperRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.StepperRenderer
+MR.Gestures.Android.Renderers.SwitchRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.SwitchRenderer
+MR.Gestures.Android.Renderers.SwitchRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.SwitchRenderer
+MR.Gestures.Android.Renderers.SwitchRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.SwitchRenderer
+mr.gestures.android.renderers.SwitchRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.SwitchRenderer
+MR.Gestures.Android.Renderers.TableViewRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.TableViewRenderer
+MR.Gestures.Android.Renderers.TableViewRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.TableViewRenderer
+MR.Gestures.Android.Renderers.TableViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.TableViewRenderer
+mr.gestures.android.renderers.TableViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.TableViewRenderer
+MR.Gestures.Android.Renderers.TimePickerRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.TimePickerRenderer
+MR.Gestures.Android.Renderers.TimePickerRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.TimePickerRenderer
+MR.Gestures.Android.Renderers.TimePickerRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.TimePickerRenderer
+mr.gestures.android.renderers.TimePickerRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.TimePickerRenderer
+MR.Gestures.Android.Renderers.AbsoluteLayoutRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.AbsoluteLayoutRenderer
+MR.Gestures.Android.Renderers.AbsoluteLayoutRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.AbsoluteLayoutRenderer
+MR.Gestures.Android.Renderers.AbsoluteLayoutRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AbsoluteLayoutRenderer
+mr.gestures.android.renderers.AbsoluteLayoutRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.AbsoluteLayoutRenderer
+MR.Gestures.Android.Renderers.GridRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.GridRenderer
+MR.Gestures.Android.Renderers.GridRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.GridRenderer
+MR.Gestures.Android.Renderers.GridRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.GridRenderer
+mr.gestures.android.renderers.GridRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.GridRenderer
+MR.Gestures.Android.Renderers.RelativeLayoutRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.RelativeLayoutRenderer
+MR.Gestures.Android.Renderers.RelativeLayoutRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.RelativeLayoutRenderer
+MR.Gestures.Android.Renderers.RelativeLayoutRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.RelativeLayoutRenderer
+mr.gestures.android.renderers.RelativeLayoutRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.RelativeLayoutRenderer
+MR.Gestures.Android.Renderers.StackLayoutRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.StackLayoutRenderer
+MR.Gestures.Android.Renderers.StackLayoutRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.StackLayoutRenderer
+MR.Gestures.Android.Renderers.StackLayoutRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.StackLayoutRenderer
+mr.gestures.android.renderers.StackLayoutRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.StackLayoutRenderer
+MR.Gestures.Android.Renderers.ContentViewRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.ContentViewRenderer
+MR.Gestures.Android.Renderers.ContentViewRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.ContentViewRenderer
+MR.Gestures.Android.Renderers.ContentViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ContentViewRenderer
+mr.gestures.android.renderers.ContentViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.ContentViewRenderer
+MR.Gestures.Android.Renderers.WebViewRenderer, MR.Gestures.Android;md5ccf3de5ddf311db256d9f26e7e77939b.WebViewRenderer
+MR.Gestures.Android.Renderers.WebViewRenderer, MR.Gestures.Android, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null;md5ccf3de5ddf311db256d9f26e7e77939b.WebViewRenderer
+MR.Gestures.Android.Renderers.WebViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.WebViewRenderer
+mr.gestures.android.renderers.WebViewRenderer;md5ccf3de5ddf311db256d9f26e7e77939b.WebViewRenderer
 Android.Support.V4.App.SharedElementCallback/IOnSharedElementsReadyListenerImplementor, Xamarin.Android.Support.Compat;mono.android.support.v4.app.SharedElementCallback_OnSharedElementsReadyListenerImplementor
 Android.Support.V4.App.SharedElementCallback+IOnSharedElementsReadyListenerImplementor, Xamarin.Android.Support.Compat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.app.SharedElementCallback_OnSharedElementsReadyListenerImplementor
 Android.Support.V4.App.SharedElementCallback.IOnSharedElementsReadyListenerImplementor;mono.android.support.v4.app.SharedElementCallback_OnSharedElementsReadyListenerImplementor

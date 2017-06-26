@@ -25,8 +25,6 @@ namespace MotivationAdmin.Views
 		{
 			InitializeComponent ();
             manager = TodoItemManager.DefaultManager;
-            Console.WriteLine("_chatGroup.GroupName" + _chatGroup.GroupName);
-            Console.WriteLine("_chatGroup.Id" + _chatGroup.Id);
             fullStack = new StackLayout();
             StackLayout btnStack = new StackLayout();
             btnStack.Orientation = StackOrientation.Horizontal;
@@ -43,9 +41,6 @@ namespace MotivationAdmin.Views
             fullStack.Children.Add(btnStack);
             if (_chatGroup.ToDoList != null)
             {
-                Console.WriteLine("_chatGroup.ToDoList.Count" + _chatGroup.ToDoList.Count);
-                //Console.WriteLine("_chatGroup.UserList.Count" + _chatGroup.UserList.Count);
-                //manager.SetGroup(_chatGroup);
                 filteredList = _chatGroup.ToDoList.GroupBy(td => td.AttachedToDo.Id)
                                    .Select(grp => grp.First())
                                    .ToList();
@@ -58,8 +53,7 @@ namespace MotivationAdmin.Views
                 {
                     fullStack.Children.Add(toDo);
                 }
-            }
-                   
+            }                   
             Content = fullStack;
             btn.Clicked += AddingNewMessages;
             btn2.Clicked += SendingToSchedule;
@@ -68,8 +62,7 @@ namespace MotivationAdmin.Views
         {
             if(fullStack.Children.IndexOf(toDo) > 0){
                 fullStack.Children.Remove(toDo);
-            }
-            
+            }          
             foreach (var added in addedList)
             {
                 multiList.Add(added);

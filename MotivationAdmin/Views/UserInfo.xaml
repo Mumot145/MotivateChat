@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:in="clr-namespace:MotivationAdmin.Controls"
+             xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures"
+             x:Class="MotivationAdmin.Views.UserInfo">
+    <StackLayout>
+        <TableView>
+            <TableRoot>
+                <TableSection Title="User Information">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Name:" HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0"  FontAttributes="Bold"/>
+                            <Entry x:Name="nameEntry" HorizontalOptions="EndAndExpand" WidthRequest="250"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Email:" HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0"  FontAttributes="Bold"/>
+                            <Entry x:Name="emailEntry" HorizontalOptions="EndAndExpand" Keyboard="Email" WidthRequest="250"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Phone:" HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0" FontAttributes="Bold"/>
+                            <Entry x:Name="phoneEntry" HorizontalOptions="EndAndExpand" Keyboard="Telephone" WidthRequest="250"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Age:" HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0"  FontAttributes="Bold"/>
+                            <Entry x:Name="ageEntry" VerticalOptions="Center" Keyboard="Numeric" Margin="5,0,5,0"  WidthRequest="60"/>
+                            <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,5,0" Text="Gender:"/>
+                            <in:SwitchText x:Name="genderSwitch"  VerticalOptions="Center" HorizontalOptions="End" Margin="5,0,5,0" />
+                        </StackLayout>
+                    </ViewCell>
+                    <TextCell Text="Location"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button HorizontalOptions="Center" Text="edit"/>
+    </StackLayout>
+   
+</ContentPage>

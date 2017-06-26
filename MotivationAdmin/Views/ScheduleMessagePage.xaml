@@ -12,9 +12,7 @@
                         <StackLayout Orientation="Horizontal">
                             <StackLayout >
                                 <Label Margin="10,0,0,0" Text="{Binding AttachedToDo.ToDo}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
-
                                 <Label Margin="20,0,0,5" Text="{Binding DayStr}" FontSize="Small" HorizontalOptions="Start"/>
-
                             </StackLayout>
                             <TimePicker HorizontalOptions="EndAndExpand" Time="{Binding SendTimeSpan}"/>
                         </StackLayout>

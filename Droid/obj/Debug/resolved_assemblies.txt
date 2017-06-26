@@ -4,6 +4,8 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\GCM.Cl
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Microsoft.WindowsAzure.Mobile.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Microsoft.WindowsAzure.Mobile.Ext.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\MR.Gestures.Android.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\MR.Gestures.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Newtonsoft.Json.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\PCLCrypto.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\PInvoke.BCrypt.dll

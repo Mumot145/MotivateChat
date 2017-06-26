@@ -55,14 +55,14 @@ namespace MotivationAdmin
             string query="";
             if (Method == "fbId")
             {
-                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE FacebookId = '" + facebookUser.Id + "'";
+                query = "SELECT Id, Name, FacebookId, AdminBool, Email, Phone, Location, Gender, Age FROM Users WHERE FacebookId = '" + facebookUser.Id + "'";
              
             } else if(Method == "rId")
             {
-                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE Id = '" + facebookUser.Id + "'";
+                query = "SELECT Id, Name, FacebookId, AdminBool, Email, Phone, Location, Gender, Age FROM Users WHERE Id = '" + facebookUser.Id + "'";
             } else if(Method == "Name")
             {
-                query = "SELECT Id, Name, FacebookId, AdminBool FROM Users WHERE Name = '" + facebookUser.Name + "'";
+                query = "SELECT Id, Name, FacebookId, AdminBool, Email, Phone, Location, Gender, Age FROM Users WHERE Name = '" + facebookUser.Name + "'";
             }
                          
             User = (User) AzureConnect(query, "User");
@@ -85,9 +85,9 @@ namespace MotivationAdmin
             string query = "INSERT INTO Schedule (TodoId, TodoWeekday) VALUES " + fullBuilder;
             AzureConnect(query, "Edit");
         }
-        public void RegisterUser(string facebookName, string facebookId)
+        public void RegisterUser()
         {
-            string query = "INSERT INTO Users (Name, FacebookId, AdminBool) VALUES ('" + facebookName + "', '" + facebookId + "', 1)";
+            string query = "INSERT INTO Users (Name, FacebookId, AdminBool) VALUES ('" + facebookUser.Name + "', '" + facebookUser.Id + "', 1)";
             AzureConnect(query, "Edit");
         }
         public void AddNewGroup(string cgName, User _user)
@@ -156,7 +156,7 @@ namespace MotivationAdmin
             List<ChatGroup> _groupList = new List<ChatGroup>();
 
 
-            string query = "SELECT cg.Id Id, cg.Name Name FROM ChatGroups cg INNER JOIN UserChatGroups ucg"
+            string query = "SELECT cg.Id Id, cg.Name Name, cg.SoloGroup SoloGroup FROM ChatGroups cg INNER JOIN UserChatGroups ucg"
                                 + " ON ucg.ChatGroupId = cg.Id"
                                 + " WHERE ucg.UserId =" + _userId;
 
@@ -245,10 +245,10 @@ namespace MotivationAdmin
                 if (groups == "")               
                     groups = g.Id + ", ";                
                 else               
-                    groups = groups + g.Id + ", ";            
+                    groups = groups + g.Id + ", ";
             }
             groups = groups.Remove(groups.Length - 2);
-            string query = "SELECT u.Id, u.Name, u.FacebookId, u.AdminBool, u.Complete, ucg.ChatGroupId FROM Users u INNER JOIN UserChatGroups ucg"
+            string query = "SELECT u.Id, u.Name, u.FacebookId, u.AdminBool, u.Complete, ucg.ChatGroupId, u.Email, u.Phone, u.Location, u.Gender, u.Age FROM Users u INNER JOIN UserChatGroups ucg"
                                 + " ON ucg.UserId = u.Id"
                                 + " WHERE ucg.ChatGroupId IN (" + groups + ") AND u.AdminBool != 1";
  
@@ -256,8 +256,7 @@ namespace MotivationAdmin
             foreach (var gl in groupList)
             {
                 List<User> ul  =  chatGroupList.Where(cg => cg.Id == gl.Id).Select(x => x.UserList).FirstOrDefault();
-                gl.UserList = ul;
-               
+                gl.UserList = ul;              
             }
 
             return groupList;
@@ -272,7 +271,7 @@ namespace MotivationAdmin
                                 + " WHERE ucg.ChatGroupId ='" + chatGroup.Id.ToString() + "'";
 
             List<User> chatGroupList = (List<User>)AzureConnect(query, "UserList");
-  
+
 
             return chatGroupList;
         }
@@ -570,11 +569,15 @@ namespace MotivationAdmin
             {
                 while (reader.Read())
                 {
+                    //SELECT Id, Name, FacebookId, AdminBool, Email, Phone, Location, Gender, Age
                     _user.Id = Convert.ToInt32(reader[0]);
                     _user.Name = String.Format("{0}", reader[1]);
                     _user.FacebookId = String.Format("{0}", reader[2]);
                     _user.Admin = Convert.ToBoolean(reader[3]);
-                   // _user.CompleteDate = Convert.ToDateTime(reader[4]);
+                    _user.Email = String.Format("{0}", reader[4]);
+                    _user.Phone = String.Format("{0}", reader[5]);
+                    _user.Location = Convert.ToInt32(reader[6]);
+                    // _user.CompleteDate = Convert.ToDateTime(reader[4]);
                 }
             }
             connection.Close();
@@ -600,8 +603,13 @@ namespace MotivationAdmin
                         _user.CompleteDate = DateTime.MinValue;
                     else
                         _user.CompleteDate = Convert.ToDateTime(reader[4]);
-
+                    //Id, Name, FacebookId, AdminBool, Email, Phone, Location, Gender, Age
                     groupNo = Convert.ToInt32(reader[5]);
+                    _user.Email = Convert.ToString(reader[6]);
+                    _user.Phone = Convert.ToString(reader[7]);
+                    _user.Location = Convert.ToInt32(reader[8]);
+                    _user.Gender = Convert.ToBoolean(reader[9]);
+                    _user.Age = Convert.ToInt32(reader[10]);
                     _chatGroup.Id = groupNo;
                     _chatGroup.UserList.Add(_user);
                     var check = _chatGroupList.Any(item => item.Id == groupNo);                  
@@ -642,7 +650,6 @@ namespace MotivationAdmin
         }
         private List<ChatGroup> readChatGroups(SqlDataReader _reader)
         {
-            
             List<ChatGroup> _chatGroupList = new List<ChatGroup>();
             if (_reader != null)
             {
@@ -650,7 +657,8 @@ namespace MotivationAdmin
                 {
                     ChatGroup _group = new ChatGroup();
                     _group.Id = Convert.ToInt32(String.Format("{0}", reader[0]));
-                    _group.GroupName = String.Format("{0}", reader[1]);                   
+                    _group.GroupName = String.Format("{0}", reader[1]);   
+                    _group.SoloGroup = bool.Parse(String.Format("{0}", reader[2]));
                     _chatGroupList.Add(_group);
                 }
             }
