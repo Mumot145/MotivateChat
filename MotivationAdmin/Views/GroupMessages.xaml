@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MotivationAdmin.Views.GroupMessages">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Save" Order="Primary" />
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout>
+        
+        <StackLayout
+            AbsoluteLayout.LayoutBounds="0, 0,1, 1" 
+            AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" WidthRequest="220">
+                <Button Text="-" Clicked="Down_Clicked"/>
+                <DatePicker x:Name="dpicker" PropertyChanged="dpicker_PropertyChanged"/>
+                <Button Text="+" Clicked="Up_Clicked"/>
+            </StackLayout>
+            <ListView x:Name="dateTodo">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding AttachedToDo.ToDo}" FontSize="Medium" HorizontalOptions="Start"/>
+                                <TimePicker Time="{Binding SendTimeSpan}" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Button    AbsoluteLayout.LayoutBounds="0.90, 0.90, 0.25, 0.10"
+                   BackgroundColor="Green"
+                   BorderRadius="50"
+                    Clicked="Button_Clicked"
+                   Text="+"
+                   AbsoluteLayout.LayoutFlags="All" />
+    </AbsoluteLayout>
+    
+</ContentPage>

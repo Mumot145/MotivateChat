@@ -13,19 +13,11 @@ namespace MotivationAdmin {
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\User\\Desktop\\MotivationApp-master\\MotivationAdmin\\Views\\GroupDetails.xam" +
         "l")]
-    public partial class GroupDetails : global::Xamarin.Forms.TabbedPage {
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label todayText;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ListView schedList;
+    public partial class GroupDetails : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(GroupDetails));
-            todayText = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "todayText");
-            schedList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "schedList");
         }
     }
 }

@@ -16,33 +16,38 @@ namespace MotivationAdmin.Views
 	{
         private string[] dayNames = new string[7];
         public event EventHandler OnAddSchedule;
-        SelectMultipleBasePage<Day> selectPage;
-        TodoFullItem thisItem = new TodoFullItem();
-        public SchedulePage (TodoFullItem _todoItem)
+        SelectMultipleBasePage<TodoItem> selectPage;
+        List<TodoItem> _fullList = new List<TodoItem>();
+        DatePicker _thisDate = new DatePicker();
+        public SchedulePage (List<TodoItem> fullItemList, DatePicker dPicker)
 		{
-            thisItem = _todoItem;
-            Week week = new Week();
+            _fullList = fullItemList;
+            _thisDate = dPicker;
+           // Week week = new Week();
             InitializeComponent();
-            List<Day> days = new List<Day>();
+           // List<Day> days = new List<Day>();
             StackLayout stack = new StackLayout();
             Button btn = new Button();
-            btn.Text = "Add Days To Message";
-            selectPage = new SelectMultipleBasePage<Day>(week.aWeek);
+            btn.Text = "Add Messages to "+dPicker.Date.Year+"/"+ dPicker.Date.Month+"/"+ dPicker.Date.Day;
+            selectPage = new SelectMultipleBasePage<TodoItem>(_fullList);
             stack.Children.Add(selectPage);
             stack.Children.Add(btn);
-            btn.Clicked += AddingDaysToMessage;
+            selectPage.VerticalOptions = LayoutOptions.StartAndExpand;
+            btn.VerticalOptions = LayoutOptions.End;
+            btn.Clicked += AddingMessagesToDay;
             Content = stack;
 
         }
-        private void AddingDaysToMessage(object sender, EventArgs e)
+        private void AddingMessagesToDay(object sender, EventArgs e)
         {
             OnAddSchedule(this, new EventArgs());
         }
-        public TodoFullItem ProvideSelected()
+        
+        public List<TodoItem> ProvideSelected()
         {
-            List<Day> days = selectPage.GetSelection();
-            thisItem.toDoDays = days;
-            return thisItem;
+            List<TodoItem> selectedList = selectPage.GetSelection();
+           // thisItem.toDoDays = days;
+            return selectedList;
         }     
     }
 }

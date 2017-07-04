@@ -20,14 +20,15 @@ namespace MotivationAdmin.Views
         private AzureDataService _azure;
         private TodoItemManager _todo;
         TodoItem messageAdd;
-        ChatGroup _chatGroup = new ChatGroup();
-		public AddMessages (ChatGroup chatGroup)
+        User user = new User();
+		public AddMessages (User _user)
 		{
-            _chatGroup = chatGroup;
-
+            user = _user;
+            var getLabels = new MessageLabels();
+            
             InitializeComponent ();
             _todo = TodoItemManager.DefaultManager;
-            _todo.SetGroup(_chatGroup);
+            _todo.SetUser(user);
             
         }
         private async void AttachMessages(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace MotivationAdmin.Views
             if (!String.IsNullOrEmpty(newItemName.Text))
             {
                 messageAdd.ToDo = newItemName.Text;
-                messageAdd.GroupId = Convert.ToString(_chatGroup.Id);
+                messageAdd.UserId = user.Id;
                 MessageList.Add(messageAdd);
                 messageAdd = null;
             }

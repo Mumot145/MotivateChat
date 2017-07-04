@@ -38,18 +38,9 @@ namespace MotivationAdmin.Views
                 userList.IsVisible = false;
                 //isEmpty.IsVisible = true;
             }
-            for(int i = 0; i < 15; i++)
-            {
-                User user = new User();
-                user.Name = "Patrick";
-                allUsers.Add(user);
-            }
+            
             userList.ItemsSource = allUsers;
         }          
-        async void OnClick(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
-        }
 
         async void Button_Clicked(object sender, EventArgs e)
         {
@@ -59,13 +50,14 @@ namespace MotivationAdmin.Views
 
         async private void userList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e == null || e.SelectedItem == null) return;
+            if (e.SelectedItem == null)
+                return;
 
             var selectedUser = (User)e.SelectedItem;
-            Console.WriteLine("select =>"+selectedUser.Id+"---"+selectedUser.Name+"----");           
+            Console.WriteLine(selectedUser.Name);
             UserInfo ui = new UserInfo(selectedUser);
             await Navigation.PushAsync(ui);
-            userList.SelectedItem = null;
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }

@@ -4,9 +4,6 @@
              x:Class="MotivationAdmin.Views.UserPage"
              NavigationPage.HasBackButton="False"
              Title="All">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Group" Activated="OnClick" Order="Primary" Priority="0" />
-    </ContentPage.ToolbarItems>
     <AbsoluteLayout VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand">
         

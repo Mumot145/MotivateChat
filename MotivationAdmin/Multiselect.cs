@@ -38,10 +38,14 @@ namespace MotivationAdmin
         {
             public WrappedItemSelectionTemplate() : base()
             {
-                Label name = new Label();
-
-                
+                Label name = new Label();         
                 name.SetBinding(Label.TextProperty, new Binding("Item.ToDo"));
+
+                Label todoLbl = new Label();
+                todoLbl.SetBinding(Label.TextProperty, new Binding("Item.getLabelInfo.MsgLabel"));
+
+                BoxView boxLbl = new BoxView();
+                boxLbl.SetBinding(BoxView.ColorProperty, new Binding("Item.getLabelInfo.Clr"));
 
                 Switch mainSwitch = new Switch();
                 mainSwitch.SetBinding(Switch.IsToggledProperty, new Binding("IsSelected"));
@@ -54,14 +58,28 @@ namespace MotivationAdmin
                     Constraint.RelativeToParent(p => p.Height - 10)
                 );
 
+                layout.Children.Add(boxLbl,
+                    Constraint.RelativeToView(todoLbl, (l, v) => v.X - 1),
+                    Constraint.RelativeToView(todoLbl, (l, v) => v.Y - 1),
+                    Constraint.RelativeToView(todoLbl, (l, v) => v.Width + 2),
+                    Constraint.RelativeToView(todoLbl, (l, v) => v.Height + 2)
+                );
+                layout.Children.Add(todoLbl,
+                    Constraint.Constant(15),
+                    Constraint.RelativeToView(name, (l, v) => v.Height - 10),
+                    null,
+                    Constraint.RelativeToParent(p => p.Height - 5)
+                );
                 layout.Children.Add(mainSwitch,
                     Constraint.RelativeToParent(p => p.Width - 55),
                     Constraint.Constant(5),
                     Constraint.Constant(50),
-                    Constraint.RelativeToParent(p => p.Height - 10)
+                    Constraint.RelativeToParent(p => p.Height - 20)
                 );
+                //todoLbl.Margin = new Thickness(0,0,0,10);
 
                 View = layout;
+                
             }
         }
 
@@ -75,7 +93,7 @@ namespace MotivationAdmin
             mainList = new ListView()
             {
                 ItemsSource = WrappedItems,
-                ItemTemplate = new DataTemplate(typeof(WrappedItemSelectionTemplate))              
+                ItemTemplate = new DataTemplate(typeof(WrappedItemSelectionTemplate))
             };
 
             Content = mainList;

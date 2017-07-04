@@ -3,42 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MotivationAdmin.GroupList"
              Title="ListView">
-    <ListView x:Name="groupList"
+    <AbsoluteLayout>
+        <ListView x:Name="groupList"
+        AbsoluteLayout.LayoutBounds="0, 0,1, 1" 
+        AbsoluteLayout.LayoutFlags="All"
         ItemTapped="Handle_ItemTapped"
         ItemSelected="Handle_ItemSelected"
         HasUnevenRows="true"
         Refreshing="OnRefresh"
 		IsPullToRefreshEnabled="true" 
         CachingStrategy="RecycleElement">
-        <ListView.Header>
-            <StackLayout Padding="10" 
+           
+                <!--<ListView.Header>
+                <StackLayout Padding="10" 
                 Orientation="Horizontal"
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="#dadada">
-                <Label Text="Header"
+                    <Label Text="Header"
                 HorizontalTextAlignment="Center"
                 HorizontalOptions="FillAndExpand"
                 TextColor="Black"
                 FontAttributes="Bold"/>
-            </StackLayout>
-        </ListView.Header>
-        <!--Built in Cells-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding GroupName}"/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-        <ListView.Footer>
-            <StackLayout Padding="10"
+                </StackLayout>
+            </ListView.Header>-->
+            <!--Built in Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding GroupName}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.Footer>
+                <StackLayout Padding="10"
                 Orientation="Horizontal"
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="#dadada">
-                <Label Text="Footer" 
+                    <Label Text="Footer" 
             HorizontalTextAlignment="Center" 
             HorizontalOptions="FillAndExpand" 
             TextColor="Black"
             FontAttributes="Bold"/>
-            </StackLayout>
-        </ListView.Footer>
-    </ListView>
+                </StackLayout>
+            </ListView.Footer>-->
+        </ListView>
+        <Button    AbsoluteLayout.LayoutBounds="0.90, 0.90, 0.25, 0.10"
+                   BackgroundColor="Green"
+                   BorderRadius="50"
+                   Clicked="Button_Clicked"
+                   Text="+"
+                   AbsoluteLayout.LayoutFlags="All" />
+    </AbsoluteLayout>
+    
 </ContentPage>

@@ -60,9 +60,9 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.ComponentModel.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.Reflection.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.ObjectModel.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
-C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.ObjectModel.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.Diagnostics.Debug.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.Text.RegularExpressions.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System.Net.Primitives.dll

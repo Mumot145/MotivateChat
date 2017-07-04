@@ -2,4 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MotivationAdmin.Views.SoloChatList">
+    <AbsoluteLayout>
+        <ListView x:Name="groupList"
+        AbsoluteLayout.LayoutBounds="0, 0,1, 1" 
+        AbsoluteLayout.LayoutFlags="All"
+       
+    
+        HasUnevenRows="true"
+        CachingStrategy="RecycleElement">
+
+            <!--<ListView.Header>
+                <StackLayout Padding="10" 
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="#dadada">
+                    <Label Text="Header"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="FillAndExpand"
+                TextColor="Black"
+                FontAttributes="Bold"/>
+                </StackLayout>
+            </ListView.Header>-->
+            <!--Built in Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding GroupName}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.Footer>
+                <StackLayout Padding="10"
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="#dadada">
+                    <Label Text="Footer" 
+            HorizontalTextAlignment="Center" 
+            HorizontalOptions="FillAndExpand" 
+            TextColor="Black"
+            FontAttributes="Bold"/>
+                </StackLayout>
+            </ListView.Footer>-->
+        </ListView>
+        <Button    AbsoluteLayout.LayoutBounds="0.90, 0.90, 0.25, 0.10"
+                   BackgroundColor="Green"
+                   BorderRadius="50"
+                   Clicked="Button_Clicked"
+                   Text="+"
+                   AbsoluteLayout.LayoutFlags="All" />
+    </AbsoluteLayout>
 </ContentPage>

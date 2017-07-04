@@ -10,18 +10,20 @@ namespace MotivationAdmin
     {
         TodoItemManager manager;
         AzureDataService service;
-        ChatGroup thisChatGroup;
-        
+        AdminViewModel thisAdmin;
+        public event EventHandler OnNewMessages;
         [System.Obsolete("Use RuntimePlatform instead.")]
-        public TodoList(ChatGroup _chatGroup)
+        public TodoList(AdminViewModel _thisAdmin)
         {
+            thisAdmin = _thisAdmin;
             InitializeComponent();
-            thisChatGroup = _chatGroup;
-            todoList.ItemsSource = _chatGroup.ToDoList;
-            BindingContext = _chatGroup.ToDoList;
+           // thisChatGroup = _chatGroup;
+            //todoList.ItemsSource = _chatGroup.ToDoList;
+            BindingContext = _thisAdmin.UsersAllMessages;
             service = AzureDataService.DefaultService;
             manager = TodoItemManager.DefaultManager;
-            manager.SetGroup(_chatGroup);
+            lblPicker.ItemsSource = new MessageLabels().AllLabels;
+            //manager.SetUser(_thisUser);
             if (manager.IsOfflineEnabled &&
                 (Xamarin.Forms.Device.OS == TargetPlatform.Windows || Xamarin.Forms.Device.OS == TargetPlatform.WinPhone))
             {
@@ -34,13 +36,20 @@ namespace MotivationAdmin
                 buttonsPanel.Children.Add(syncButton);
             }
         }
-
+        public AdminViewModel retVM()
+        {
+            return thisAdmin;
+        }
         async Task AddItem(TodoItem item)
         {
             await manager.SaveTaskAsync(item);
-            todoList.ItemsSource = await manager.GetTodoItemsAsync();
+            thisAdmin.UsersAllMessages = await manager.GetTodoItemsAsync();
+            todoList.ItemsSource = thisAdmin.UsersAllMessages;
         }
-
+        override protected void OnDisappearing()
+        {
+            OnNewMessages(this, new EventArgs());
+        }
         async Task DeleteItem(TodoItem item)
         {
             item.Deleted = true;
@@ -50,10 +59,11 @@ namespace MotivationAdmin
 
         public async void OnAdd(object sender, EventArgs e)
         {
-            var todo = new TodoItem { ToDo = newItemName.Text, GroupId = thisChatGroup.Id.ToString()};
+            var todo = new TodoItem { ToDo = newItemName.Text, UserId = thisAdmin.ThisUser.Id, MessageLabel = lblPicker.SelectedIndex };
             await AddItem(todo);
             newItemName.Text = string.Empty;
             newItemName.Unfocus();
+            await RefreshItems(false, true);
         }
 
         // Event handlers

@@ -28,7 +28,7 @@ namespace MotivationAdmin
     public partial class TodoItemManager
     {
         static TodoItemManager defaultInstance = new TodoItemManager();
-        static ChatGroup chatGroup = new ChatGroup();
+        static User thisUser = new User();
         MobileServiceClient client;
 
 
@@ -60,9 +60,9 @@ namespace MotivationAdmin
             this.todoTable = client.GetTable<TodoItem>();
 #endif
         }
-        public void SetGroup(ChatGroup _chatGroup)
+        public void SetUser(User _user)
         {
-            chatGroup = _chatGroup;
+            thisUser = _user;
         }
         public static TodoItemManager DefaultManager
         {
@@ -99,7 +99,7 @@ namespace MotivationAdmin
 
                 IEnumerable<TodoItem> items = await todoTable
                     .Where(todoItem => !todoItem.Done)
-                    .Where(cg=> cg.GroupId == Convert.ToString(chatGroup.Id))
+                    .Where(cg=> cg.UserId == thisUser.Id)
                  //   .OrderBy(time => time.SendTime)
                     .ToEnumerableAsync();
                 return new ObservableCollection<TodoItem>(items);
@@ -120,15 +120,16 @@ namespace MotivationAdmin
             if (item.Id == null)
             {
                 Console.WriteLine("insider" + item.ToDo);
-                Console.WriteLine("insider" + item.GroupId);
+                Console.WriteLine("insider" + item.UserId);
 
                 await todoTable.InsertAsync(
                     new TodoItem
                     {
                         ToDo = item.ToDo,
-                        GroupId = item.GroupId,
+                        UserId = item.UserId,
                         Deleted = false,
-                        Done = false
+                        Done = false,
+                        MessageLabel = item.MessageLabel
                     });
             }
             else
@@ -138,6 +139,7 @@ namespace MotivationAdmin
                 Debug.WriteLine("update");
                 await todoTable.UpdateAsync(item);
             }
+
         }
 
 #if OFFLINE_SYNC_ENABLED

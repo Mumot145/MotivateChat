@@ -214,7 +214,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomSwitchRenderer.cs" />
+    <Compile Include="CustomRenderer.cs" />
     <Compile Include="GcmService.cs" />
     <Compile Include="LoginPageRenderer.cs" />
     <Compile Include="MainActivity.cs" />

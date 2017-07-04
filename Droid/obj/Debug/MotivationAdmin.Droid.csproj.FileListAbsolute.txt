@@ -401,6 +401,7 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.LoadingPage.xaml.g.cs
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.SoloChatList.xaml.g.cs
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.UserInfo.xaml.g.cs
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.GroupMessages.xaml.g.cs
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.pdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\bin\com.xamarin.sample.MotivationAdmin.apk
@@ -464,5 +465,6 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\System
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.GroupUsers.xaml.g.cs
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MotivationAdmin.dll.mdb

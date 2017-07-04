@@ -4,7 +4,7 @@
              x:Class="MotivationAdmin.Views.ScheduleMessagePage">
     <StackLayout>
         <ListView x:Name="selectedItemsList"
-              ItemSelected="selectedItemsList_ItemSelected"
+             
               HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -20,7 +20,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Add Days to Schedule" Clicked="AddToSchedule"/>
+        <Button Text="Add Days to Schedule" />
     </StackLayout>
   
 </ContentPage>

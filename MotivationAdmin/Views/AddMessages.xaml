@@ -25,7 +25,7 @@
                 <StackLayout  Orientation="Horizontal">
                     <Entry Grid.Column="0" x:Name="newItemName"
                         Placeholder="Item name" HorizontalOptions="StartAndExpand"/>
-                    
+                    <Picker x:Name="lblPicker" HorizontalOptions="EndAndExpand"/>
                 </StackLayout>
 
                 <StackLayout x:Name="buttonsPanel" Grid.Column="2" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
@@ -39,7 +39,8 @@
         <DataTemplate>
             <ViewCell>
              <StackLayout Orientation="Horizontal" Padding="15,5,15,0">
-             <Label Text="{Binding ToDo}"/>
+                <Label Text="{Binding ToDo}"/>
+                 
             </StackLayout>
           </ViewCell>
         </DataTemplate>

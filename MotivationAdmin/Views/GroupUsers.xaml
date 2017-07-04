@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MotivationAdmin.Views.GroupUsers"
+             Title="{Binding GroupNameUserTitle}">
+    <ListView ItemsSource="{Binding UserList}" ItemSelected="ListView_ItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="Start"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

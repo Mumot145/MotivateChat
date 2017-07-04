@@ -10,7 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Controls\CustomInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AdminViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Day.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LabelModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RandomGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TodoFullItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Week.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MotiveApp.xaml.cs">
@@ -34,6 +37,12 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\GroupList.xaml.cs">
       <DependentUpon>GroupList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\GroupMessages.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\GroupUsers.xaml.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\LoadingPage.xaml.cs">
       <SubType>Code</SubType>
@@ -153,6 +162,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\UserInfo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\GroupMessages.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\GroupUsers.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

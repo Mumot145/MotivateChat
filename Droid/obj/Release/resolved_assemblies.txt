@@ -4,6 +4,8 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\GCM.
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\Microsoft.WindowsAzure.Mobile.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\Microsoft.WindowsAzure.Mobile.Ext.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\MR.Gestures.Android.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\MR.Gestures.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\Newtonsoft.Json.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\PCLCrypto.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\PInvoke.BCrypt.dll
@@ -55,9 +57,9 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\Syst
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.ComponentModel.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.Xml.ReaderWriter.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.Reflection.dll
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.ObjectModel.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.Resources.ResourceManager.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.Threading.Tasks.dll
-C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.ObjectModel.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.Diagnostics.Debug.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.Text.RegularExpressions.dll
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Release\android\assets\System.Net.Primitives.dll

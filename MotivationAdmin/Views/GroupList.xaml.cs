@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
+using MotivationAdmin.Controls;
 using MotivationAdmin.Models;
 using MotivationAdmin.Views;
 using Newtonsoft.Json;
@@ -22,26 +23,26 @@ namespace MotivationAdmin
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GroupList : ContentPage
     {
+        public event EventHandler<EventArgs> OnNewGroup;
         bool authenticated = false;
         User currentUser = new User();
+        public NewGroup newGroupPagegl;
         FacebookUser facebookUser = new FacebookUser();
         AzureDataService service;
-        List<ChatGroup> thisGroupList = new List<ChatGroup>();
+       // List<ChatGroup> thisGroupList = new List<ChatGroup>();
+        AdminViewModel adminViewModel = new AdminViewModel();
         private string token;
-        public GroupList(List<ChatGroup> _thisGroupList)
-        {           
+        public GroupList(AdminViewModel _thisAdmin)
+        {            
             InitializeComponent();
-            thisGroupList = _thisGroupList;
+            currentUser = _thisAdmin.ThisUser;
+            var gl = _thisAdmin.UsersChatGroups.Where(cg => cg.SoloGroup == false).ToList();
+            adminViewModel = _thisAdmin;
             service = AzureDataService.DefaultService;
-            var tbi = new ToolbarItem("Add Group","", () =>
-            {            
-                var newGroupPage = new NewGroup(currentUser);
-                Navigation.PushAsync(newGroupPage);
-            }, 0, 0);
-            tbi.Order = ToolbarItemOrder.Primary;  // forces it to appear in menu on Android
-            ToolbarItems.Add(tbi);
-            groupList.ItemsSource = thisGroupList;
+            
+            groupList.ItemsSource = gl;
         }
+
         void OnRefresh(object sender, RefreshEventArgs e)
         {
             groupList.IsRefreshing = false;
@@ -54,19 +55,20 @@ namespace MotivationAdmin
             if (e.SelectedItem == null)
                 return;
             ChatGroup cg = (ChatGroup)e.SelectedItem;
-            await Navigation.PushAsync(new GroupDetails(cg, currentUser));
+            await Navigation.PushAsync(new GroupDetails(cg, adminViewModel));
             ((ListView)sender).SelectedItem = null;
         }
-        
 
-        public async Task GetFacebookProfileAsync(string accessToken)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            var requestUrl = "https://graph.facebook.com/v2.8/me/"
-                             + "?fields=name,picture,cover,age_range,devices,email,gender,is_verified"
-                             + "&access_token=" + accessToken;
-            var httpClient = new HttpClient();
-            var userJson = await httpClient.GetStringAsync(requestUrl);
-            facebookUser = JsonConvert.DeserializeObject<FacebookUser>(userJson);
-        }      
+            OnNewGroup?.Invoke(this, new EventArgs());
+        }
+
+        public void updateVM(AdminViewModel avm)
+        {
+            groupList.ItemsSource = null;
+            adminViewModel = avm;
+            groupList.ItemsSource = adminViewModel.UsersChatGroups.Where(cg => cg.SoloGroup == false).ToList();
+        }
     }
 }

@@ -22,12 +22,11 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <StackLayout  Orientation="Horizontal">
-            <Entry Grid.Column="0" x:Name="newItemName"
+
+          <Entry Grid.Column="0" x:Name="newItemName"
                 Placeholder="Item name"/>
-            <TimePicker x:Name="newItemTime" Grid.Column="1" Time="08:00:00"  HorizontalOptions="EndAndExpand"/> 
-        </StackLayout>
-        
+                <Picker Grid.Column="1" x:Name="lblPicker" ItemDisplayBinding="{Binding MsgLabel}"/>
+
         <StackLayout x:Name="buttonsPanel" Grid.Column="2" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
           <Button Text="+"
                   MinimumHeightRequest="30"
@@ -38,7 +37,7 @@
       </Grid>
     </StackLayout>
     <ListView x:Name="todoList"
-              ItemsSource="{Binding ToDoList}"
+              ItemsSource="{Binding .}"
 				Refreshing="OnRefresh"
 				IsPullToRefreshEnabled="true" 
 				Grid.Row="1">
@@ -49,11 +48,12 @@
             <ViewCell.ContextActions>
             <MenuItem Text="Delete" Clicked="OnDelete" CommandParameter="{Binding .}"/> <!---->
             </ViewCell.ContextActions>             
-            <StackLayout Orientation="Horizontal" Padding="15,5,15,0">
-              <StackLayout HorizontalOptions="StartAndExpand"  Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-               <Label Text="{Binding AttachedToDo.ToDo}"  />
-              </StackLayout>
-              <Label Text="{Binding SendTime}"  HorizontalOptions="EndAndExpand"/>
+            <StackLayout Orientation="Horizontal" Padding="15,5,15,0">            
+               <Label Text="{Binding ToDo}"  />
+                <AbsoluteLayout HorizontalOptions="EndAndExpand">
+                    <BoxView Color="{Binding getLabelInfo.Clr}" AbsoluteLayout.LayoutBounds="0.1,0.1, 1,0.5" AbsoluteLayout.LayoutFlags="All"/>
+                    <Label Text="{Binding getLabelInfo.MsgLabel}"  AbsoluteLayout.LayoutBounds="0.1,0.1, 1,1" AbsoluteLayout.LayoutFlags="All"/>
+                </AbsoluteLayout>
             </StackLayout>
           </ViewCell>
         </DataTemplate>

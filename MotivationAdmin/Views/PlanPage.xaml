@@ -4,28 +4,21 @@
              x:Class="MotivationAdmin.Views.PlanPage">
     <StackLayout>
         <Button HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Add Messages" x:Name="AddMsgBtn"/>
-        <ListView x:Name="todoList"
-              ItemsSource="{Binding ToDoList}"
-			 
-			  IsPullToRefreshEnabled="true">
+        <ListView x:Name="todoList">
             <!--ItemSelected="OnSelected"//-->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <ViewCell.ContextActions>
-                            <MenuItem Text="Delete"  CommandParameter="{Binding .}"/>
-                            <!---->
-            </ViewCell.ContextActions>             
-            <StackLayout Orientation="Horizontal" Padding="15,5,15,0">
-              <StackLayout HorizontalOptions="StartAndExpand"  Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-               <Label Text="{Binding AttachedToDo.ToDo}"  />
-              </StackLayout>
-              <Switch />
-            </StackLayout>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
+                        <StackLayout Orientation="Horizontal" Padding="15,5,15,0">
+                          <StackLayout HorizontalOptions="StartAndExpand"  Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                           <Label Text="{Binding AttachedToDo.ToDo}"  />
+                          </StackLayout>
+                          <Switch />
+                        </StackLayout>
+                  </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         
     </StackLayout>
     

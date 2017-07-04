@@ -14,11 +14,13 @@ namespace MotivationAdmin.Views
 	public partial class LoadingPage : ContentPage
 	{
         AzureDataService service;
+        TodoItemManager manager;
         string token = "";
         User currentUser = new User();
         public LoadingPage (string _aToken)
 		{
             service = AzureDataService.DefaultService;
+            manager = TodoItemManager.DefaultManager;
             token = _aToken;
             InitializeComponent ();
         }
@@ -35,6 +37,7 @@ namespace MotivationAdmin.Views
                     await service.GetFacebookProfileAsync(token);
                     service.SetUser("fbId");
                     currentUser = service.GetUser();
+                    manager.SetUser(currentUser);
                     if (currentUser == null)
                     {
                         service.RegisterUser();
@@ -43,15 +46,21 @@ namespace MotivationAdmin.Views
                             await Navigation.PushModalAsync(new LoginPage());
                         else
                         {
-                            var info = service.GetGroups(currentUser.Id);
+                            var allTodo = await manager.GetTodoItemsAsync(true);
+                            var info = service.GetAdminViewModel(currentUser.Id, allTodo.ToList());
+                            info.ThisUser = currentUser;
+                            info.UsersAllMessages = allTodo;
                             await Navigation.PushModalAsync(new NavigationPage(new MainPage(info)));
                         }
                             
                     }
                     else
                     {
-                        var info = service.GetGroups(currentUser.Id);
-                        await Navigation.PushModalAsync(new MainPage(info));
+                        var allTodo = await manager.GetTodoItemsAsync(true);
+                        var info = service.GetAdminViewModel(currentUser.Id, allTodo.ToList());
+                        info.ThisUser = currentUser;
+                        info.UsersAllMessages = allTodo;
+                        await Navigation.PushModalAsync(new NavigationPage(new MainPage(info)));
                     }
                 }
                 catch (InvalidCastException e)
