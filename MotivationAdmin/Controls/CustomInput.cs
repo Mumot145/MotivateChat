@@ -10,14 +10,24 @@ namespace MotivationAdmin.Controls
     {
 
     }
-    public class GroupAddArgs : EventArgs
+    public class GroupArgs : EventArgs
     {
         private ChatGroup m_Data;
-        public GroupAddArgs(ChatGroup data)
+        public GroupArgs(ChatGroup data)
         {
             m_Data = data;
         }
         public ChatGroup Data
+        { get { return m_Data; } }
+    }
+    public class UserArgs : EventArgs
+    {
+        private User m_Data;
+        public UserArgs(User data)
+        {
+            m_Data = data;
+        }
+        public User Data
         { get { return m_Data; } }
     }
 }

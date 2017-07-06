@@ -14,7 +14,8 @@ namespace MotivationAdmin.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SoloChatList : ContentPage
 	{
-        public event EventHandler<EventArgs> OnAddGroup;
+        public event EventHandler<EventArgs> OnAddSolo;
+        public event EventHandler<GroupArgs> OnSelectSolo;
         AdminViewModel _thisAdmin = new AdminViewModel();
         public NewGroup newGroupPagesl;
         AzureDataService service;
@@ -40,5 +41,14 @@ namespace MotivationAdmin.Views
                 await Navigation.PushAsync(newGroupPagesl);
         }
 
+        private void groupList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+            ChatGroup cg = (ChatGroup)e.SelectedItem;
+            OnSelectSolo?.Invoke(this, new GroupArgs(cg));
+            //
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }

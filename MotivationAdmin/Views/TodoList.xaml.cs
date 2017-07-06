@@ -46,10 +46,10 @@ namespace MotivationAdmin
             thisAdmin.UsersAllMessages = await manager.GetTodoItemsAsync();
             todoList.ItemsSource = thisAdmin.UsersAllMessages;
         }
-        override protected void OnDisappearing()
-        {
-            OnNewMessages(this, new EventArgs());
-        }
+       // override protected void OnDisappearing()
+       // {
+           // OnNewMessages(this, new EventArgs());
+       // }
         async Task DeleteItem(TodoItem item)
         {
             item.Deleted = true;

@@ -22,7 +22,12 @@ namespace MotivationAdmin.Models
         public bool Gender { get; set; }       
         public bool Admin { get; set; }
         public bool AttachedGroup { get; set; }
-
+        public string filterName {
+            get {
+                if (Name == "") { return Email; }
+                else { return Name; }
+            }
+        }
         public bool GuessPass(string passGuess)
         {
             if(passGuess == Password)            
@@ -42,11 +47,11 @@ namespace MotivationAdmin.Models
             {
                 if (AttachedGroup == true)
                 {
-                    return "Solo Group";
+                    return "solo.png";
                 }
                 else
                 {
-                    return "Group";
+                    return "group.png";
                 }
             }
         }

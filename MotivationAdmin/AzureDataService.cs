@@ -68,8 +68,12 @@ namespace MotivationAdmin
             User = (User) AzureConnect(query, "User");
            // return _user;
         }
+        public void AddUserPending(string newUserEmail, User admin)
+        {
+            string query = "INSERT INTO Users Email, AdminId VALUES ('" + newUserEmail+"', '"+admin.Id+"')";
+            AzureConnect(query, "Edit");
+        }
 
-        
         public void AddDaysToSchedule(int scheduleId, List<Day> dayList)
         {
             string fullBuilder = "";
@@ -160,6 +164,38 @@ namespace MotivationAdmin
         public void ResetCompletion(string _userId)
         {
             string query = "UPDATE Users SET Complete = null WHERE Id = '" + _userId + "'";
+            AzureConnect(query, "Edit");
+        }
+        public void EditMessageTimes(List<TodoFullItem> _oldTodoList, List<TodoFullItem> _newTodoList)
+        {
+            //       UPDATE config
+            //   SET config_value = CASE config_name
+            //                        WHEN 'name1' THEN 'value'
+            //                WHEN 'name2' THEN 'value2'
+            //                 ELSE config_value
+            //                  END
+            // WHERE config_name IN('name1', 'name2'); ;
+            string WhenElseString = "";
+            string idString = "";
+            if (_newTodoList.Count < 1)
+                return;
+
+            foreach (var ntl in _newTodoList)
+            {
+                var newtime = ntl.SendTimeSpan;
+                //var oldtime = _oldTodoList.Where(otl => otl.ScheduleId == ntl.ScheduleId).Select(ot => ot.SendTimeSpan).FirstOrDefault();
+                if (newtime != ntl.SendDateTime.TimeOfDay)
+                {
+                    DateTime dt = new DateTime(year: DateTime.Today.Year, month: DateTime.Today.Month, day: DateTime.Today.Day, hour: newtime.Hours, minute: newtime.Minutes, second: newtime.Seconds) ;
+                    WhenElseString = WhenElseString + " WHEN '" + ntl.ScheduleId + "' THEN '" + dt + "'";
+                    idString = idString + "'" + ntl.ScheduleId + "',";
+                }
+                    
+            }
+            idString = idString.Remove(idString.Length - 1);
+            WhenElseString = WhenElseString + " ELSE TodoDatetime " +
+                "END WHERE Id IN("+ idString+")";
+            string query = "UPDATE Schedule SET TodoDatetime = CASE Id"+ WhenElseString;
             AzureConnect(query, "Edit");
         }
         public AdminViewModel GetAdminViewModel(int _userId, List<TodoItem> allTodos)
@@ -313,7 +349,7 @@ namespace MotivationAdmin
                 groups = groups + g.Id + "', '";
             }
             groups = groups.Remove(groups.Length - 3);
-            string query = "SELECT ToDoId, TodoDatetime, Grp FROM Schedule WHERE Grp IN (" + groups + ") AND deleted != 'True'";
+            string query = "SELECT ToDoId, TodoDatetime, Grp, Id FROM Schedule WHERE Grp IN (" + groups + ") AND deleted != 'True'";
             List<TodoFullItem> fullTodo = (List<TodoFullItem>)AzureConnect(query, "ToDoList");
             foreach (var gl in groupList)
             {
@@ -325,6 +361,7 @@ namespace MotivationAdmin
                     td.AttachedToDo.ToDo = allTodos.Where(atd => atd.Id == td.AttachedToDo.Id).Select(c => c.ToDo).FirstOrDefault();
                     td.AttachedToDo.UserId = allTodos.Where(atd => atd.Id == td.AttachedToDo.Id).Select(c => c.UserId).FirstOrDefault();
                     td.AttachedToDo.Done = allTodos.Where(atd => atd.Id == td.AttachedToDo.Id).Select(c => c.Done).FirstOrDefault();
+                    td.AttachedToDo.MessageLabel = allTodos.Where(atd => atd.Id == td.AttachedToDo.Id).Select(c => c.MessageLabel).FirstOrDefault();
                 }
             }
             
@@ -354,6 +391,17 @@ namespace MotivationAdmin
         public void DeleteFromGroup(int id, ChatGroup chatGroup)
         {
             string query = "DELETE FROM UserChatGroups WHERE UserId = '" + id.ToString() + "' AND ChatGroupId = '" + chatGroup.Id + "'";
+            AzureConnect(query, "Edit");
+        }
+        public void DeleteMessageFromGroup(TodoFullItem item)
+        {
+
+            string query = "DELETE FROM Schedule WHERE Id = '" + item.ScheduleId + "'";
+            AzureConnect(query, "Edit");
+        }
+        public void EditGroupMessage(TodoFullItem item)
+        {
+            string query = "DELETE FROM Schedule WHERE Id = '" + item.ScheduleId + "'";
             AzureConnect(query, "Edit");
         }
         public void AddToSchedule(int id, ChatGroup chatGroup)
@@ -477,6 +525,7 @@ namespace MotivationAdmin
                     toDo.AttachedToDo.Id = String.Format("{0}", reader[0]);
                     toDo.SendDateTime = DateTime.Parse(String.Format("{0}", reader[1]));
                     toDo.groupId = Int32.Parse(String.Format("{0}", reader[2]));
+                    toDo.ScheduleId = Int32.Parse(String.Format("{0}", reader[3]));
                     todoList.Add(toDo);
                 }
             }

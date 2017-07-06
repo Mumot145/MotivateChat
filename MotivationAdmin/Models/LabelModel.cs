@@ -21,8 +21,9 @@ namespace MotivationAdmin.Models
     }
     public class Lbl
     {
+        private string msg { get; set; }
         public int Id { get; set; }
-        public string MsgLabel { get; set; }
+        public string MsgLabel { get { return msg.Trim(); }  set { msg = value; } }
         public string Clr { get; set; }
     }
 }

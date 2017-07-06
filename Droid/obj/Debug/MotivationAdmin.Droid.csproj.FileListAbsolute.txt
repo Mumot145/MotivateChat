@@ -466,5 +466,9 @@ C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Xamari
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.GroupUsers.xaml.g.cs
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.EditMessage.xaml.g.cs
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\res\drawable\solo.png
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\res\drawable\group.png
+C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.Droid.Views.SoloDetails.xaml.g.cs
 C:\Users\User\Desktop\MotivationApp-master\Droid\obj\Debug\MotivationAdmin.dll.mdb
 C:\Users\User\Desktop\MotivationApp-master\Droid\bin\Debug\MotivationAdmin.dll.mdb

@@ -2,9 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MotivationAdmin.Views.GroupMessages">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Save" Order="Primary" />
-    </ContentPage.ToolbarItems>
+   
     <AbsoluteLayout>
         
         <StackLayout
@@ -15,14 +13,32 @@
                 <DatePicker x:Name="dpicker" PropertyChanged="dpicker_PropertyChanged"/>
                 <Button Text="+" Clicked="Up_Clicked"/>
             </StackLayout>
-            <ListView x:Name="dateTodo">
+            <ListView x:Name="dateTodo"
+                     HasUnevenRows="True"
+                     ItemSelected="dateTodo_ItemSelected"
+                      >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding AttachedToDo.ToDo}" FontSize="Medium" HorizontalOptions="Start"/>
-                                <TimePicker Time="{Binding SendTimeSpan}" HorizontalOptions="EndAndExpand"/>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnEdit" CommandParameter="{Binding .}"
+                                        Text="Edit Message" />
+                                <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}"
+                                        Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                            <StackLayout Orientation="Horizontal" Padding="15,0,15,0" HeightRequest="80">
+                            <StackLayout>
+                                
+                                    <Label Text="{Binding AttachedToDo.ToDo}"  />
+                                    <AbsoluteLayout>
+                                        <BoxView Color="{Binding AttachedToDo.getLabelInfo.Clr}" AbsoluteLayout.LayoutBounds="0.1,0.1, 0.5,0.4" AbsoluteLayout.LayoutFlags="WidthProportional, HeightProportional, XProportional"/>
+                                        <Label Text="{Binding AttachedToDo.getLabelInfo.MsgLabel}"  AbsoluteLayout.LayoutBounds="0.1,0.1, 0.5,0.35" AbsoluteLayout.LayoutFlags="All"/>
+                                    </AbsoluteLayout>
+                                    
+                                </StackLayout>
+                                <TimePicker Time="{Binding SendTimeSpan}" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
                             </StackLayout>
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

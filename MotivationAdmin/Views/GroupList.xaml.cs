@@ -24,6 +24,7 @@ namespace MotivationAdmin
     public partial class GroupList : ContentPage
     {
         public event EventHandler<EventArgs> OnNewGroup;
+        public event EventHandler<GroupArgs> OnSelectGroup;
         bool authenticated = false;
         User currentUser = new User();
         public NewGroup newGroupPagegl;
@@ -47,15 +48,14 @@ namespace MotivationAdmin
         {
             groupList.IsRefreshing = false;
         }
-        void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-            => ((ListView)sender).SelectedItem = null;
 
-        async void Handle_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        void Handle_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
                 return;
             ChatGroup cg = (ChatGroup)e.SelectedItem;
-            await Navigation.PushAsync(new GroupDetails(cg, adminViewModel));
+            OnSelectGroup?.Invoke(this, new GroupArgs(cg));
+            //
             ((ListView)sender).SelectedItem = null;
         }
 

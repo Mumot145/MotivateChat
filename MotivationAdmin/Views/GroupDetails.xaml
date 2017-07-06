@@ -5,36 +5,13 @@
 
              Title="{Binding GroupName}">
     <StackLayout>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="40,40,40,40">
             <Label Text="CODE: " FontAttributes="Bold" FontSize="Large"/>
-            <Label Text="XYZ123" FontAttributes="Italic" FontSize="Large"/>
+            <Label Text="{Binding GroupShareId}" FontAttributes="Italic" FontSize="Large"/>
         </StackLayout>
         <Button Text="Show Users" Clicked="Users_Clicked"/>
         <Button Text="Show Messages" Clicked="ShowMessages_Clicked"/>
         <Button Text="Show Group Stats"/>
-        <!--<Label x:Name="todayText" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" Margin="0,10,0,10"/>-->
-
-            <!--<Slider x:Name="slider"
-                    
-                    Minimum="0"
-                    Maximum="100"
-            PropertyChanged="slider_PropertyChanged"
-            ValueChanged="slider_ValueChanged"
-            
-            VerticalOptions="CenterAndExpand" />-->
-            <!--<Label Text="{Binding GroupName}"  HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="5" />-->
-            <!--<ListView x:Name="schedList" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding AttachedToDo.ToDo}" FontSize="Medium" HorizontalOptions="Start"/>
-                                <TimePicker Time="{Binding SendTimeSpan}" HorizontalOptions="EndAndExpand"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
-     </StackLayout>
+    </StackLayout>
 
 </ContentPage>

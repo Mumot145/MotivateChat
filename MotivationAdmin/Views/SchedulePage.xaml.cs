@@ -25,14 +25,14 @@ namespace MotivationAdmin.Views
             _thisDate = dPicker;
            // Week week = new Week();
             InitializeComponent();
-           // List<Day> days = new List<Day>();
-            StackLayout stack = new StackLayout();
+            // List<Day> days = new List<Day>();
+            StackLayout stack = new StackLayout() { VerticalOptions = LayoutOptions.FillAndExpand };
             Button btn = new Button();
             btn.Text = "Add Messages to "+dPicker.Date.Year+"/"+ dPicker.Date.Month+"/"+ dPicker.Date.Day;
-            selectPage = new SelectMultipleBasePage<TodoItem>(_fullList);
+            selectPage = new SelectMultipleBasePage<TodoItem>(_fullList.OrderBy(f => f.MessageLabel).ToList()) { VerticalOptions = LayoutOptions.FillAndExpand };
             stack.Children.Add(selectPage);
             stack.Children.Add(btn);
-            selectPage.VerticalOptions = LayoutOptions.StartAndExpand;
+            //selectPage.VerticalOptions = LayoutOptions.StartAndExpand;
             btn.VerticalOptions = LayoutOptions.End;
             btn.Clicked += AddingMessagesToDay;
             Content = stack;

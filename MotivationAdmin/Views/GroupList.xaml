@@ -7,7 +7,6 @@
         <ListView x:Name="groupList"
         AbsoluteLayout.LayoutBounds="0, 0,1, 1" 
         AbsoluteLayout.LayoutFlags="All"
-        ItemTapped="Handle_ItemTapped"
         ItemSelected="Handle_ItemSelected"
         HasUnevenRows="true"
         Refreshing="OnRefresh"

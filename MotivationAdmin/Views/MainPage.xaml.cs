@@ -19,16 +19,21 @@ namespace MotivationAdmin.Views
         GroupList groupPage;
         SoloChatList soloChatPage;
         NewGroup newGroupPage;
+        [System.Obsolete("Use RuntimePlatform instead.")]
         public MainPage (AdminViewModel allInfo)
 		{
             BindingContext = allInfo;
 			InitializeComponent ();
             thisAdmin = allInfo;
-            UserPage userpage = (new UserPage(thisAdmin.UsersChatGroups));
+            messagesPage = new TodoList(thisAdmin);
+            UserPage userpage = (new UserPage(thisAdmin));
+            userpage.OnEditUser += new EventHandler<UserArgs>(editUser);
             groupPage = new GroupList(thisAdmin);
-            //groupPage.OnNewGroup += new EventHandler<EventArgs>(addingGroups);
+            groupPage.OnSelectGroup += new EventHandler<GroupArgs>(selectGroup);
+            groupPage.OnNewGroup += new EventHandler<EventArgs>(addingGroups);
             soloChatPage = new SoloChatList(thisAdmin);
-            //soloChatPage.OnAddGroup += new EventHandler<EventArgs>(addingGroups);
+            soloChatPage.OnAddSolo += new EventHandler<EventArgs>(addingGroups);
+            soloChatPage.OnSelectSolo += new EventHandler<GroupArgs>(selectSolo);
             Children.Add(userpage);
             Children.Add(groupPage);
             Children.Add(soloChatPage);
@@ -38,25 +43,39 @@ namespace MotivationAdmin.Views
             Console.WriteLine("OUR STACK IS AT :"+ Navigation.NavigationStack.Count);
         }
         //Navigation.NavigationStack.Count
-        //async void addingGroups(object sender, EventArgs e)
-        //{
-        //    newGroupPage = new NewGroup(thisAdmin.ThisUser);
-        //    newGroupPage.OnNewGroupAdded += new EventHandler<GroupAddArgs>(AddGroups);
-        //    await Navigation.PushAsync(newGroupPage);
-        //}
-
-        //void AddGroups(object sender, GroupAddArgs e)
-        //{
-        //    Console.WriteLine("info =>"+e.Data.GroupName);
-
-        // }
+        void addingGroups(object sender, EventArgs e)
+        {
+            Console.WriteLine("would add group");
+            //newGroupPage = new NewGroup(thisAdmin.ThisUser);
+           // newGroupPage.OnNewGroupAdded += new EventHandler<GroupAddArgs>(AddGroups);
+            //await Navigation.PushAsync(newGroupPage);
+        }
+        //UserInfo ui = new UserInfo(selectedUser);
+        //await Navigation.PushAsync(ui);
+        async void selectGroup(object sender, GroupArgs e)
+        {
+            Console.WriteLine("info =>" + e.Data.GroupName);
+            await Navigation.PushAsync(new GroupDetails(e.Data, thisAdmin));
+        }
+        async void selectSolo(object sender, GroupArgs e)
+        {
+            Console.WriteLine("info =>" + e.Data.GroupName);
+            if(e.Data != null && thisAdmin!=null)
+                await Navigation.PushAsync(new SoloDetails(e.Data, thisAdmin));
+        }
+        async void editUser(object sender, UserArgs e)
+        {
+            Console.WriteLine("info =>" + e.Data.Name);            
+            await Navigation.PushAsync(new UserInfo(e.Data));
+            //await Navigation.PushAsync(new GroupDetails(e.Data, thisAdmin));
+        }
         //retVM()
         //thisAdmin = retVM();
-        [System.Obsolete("Use RuntimePlatform instead.")]
+       
         private async void Messages_Clicked(object sender, EventArgs e)
         {
-            messagesPage = new TodoList(thisAdmin);
-            messagesPage.OnNewMessages += new EventHandler(AddMessagePage);
+            
+            //messagesPage.OnNewMessages += new EventHandler(AddMessagePage);
             // toDo.OnAddMessages += new EventHandler(AddMessagePage);
             await Navigation.PushAsync(messagesPage);
         }

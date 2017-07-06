@@ -12,9 +12,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="Start"/>
-                                <Label Text="{Binding getGroupType}" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                            <StackLayout Orientation="Horizontal" Margin="10,5,10,5">
+                            <Label Text="{Binding filterName}" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                                <Image Source="{Binding getGroupType}" VerticalOptions="CenterAndExpand"  HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

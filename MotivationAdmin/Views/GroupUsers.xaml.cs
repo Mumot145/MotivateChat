@@ -22,10 +22,13 @@ namespace MotivationAdmin.Views
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            if (e.SelectedItem == null)
+                return;
+
             User selectedUser = (User)e.SelectedItem;
             UserInfo ui = new UserInfo(selectedUser);
             Navigation.PushAsync(ui);
-            
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }

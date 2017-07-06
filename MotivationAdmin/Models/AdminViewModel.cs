@@ -9,12 +9,18 @@ namespace MotivationAdmin.Models
     {
         private List<ChatGroup> _usersChatGroups = new List<ChatGroup>();
         private User _thisUser = new User();
+        private List<User> _pendingUsers = new List<User>();
         private ObservableCollection<TodoItem> _usersAllMessages = new ObservableCollection<TodoItem>();
 
         public List<ChatGroup> UsersChatGroups
         {
             get { return _usersChatGroups; }
             set { _usersChatGroups = value; }
+        }
+        public List<User> PendingUsers
+        {
+            get { return _pendingUsers; }
+            set { _pendingUsers = value; }
         }
         public User ThisUser
         {

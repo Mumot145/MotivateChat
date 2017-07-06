@@ -17,12 +17,17 @@ namespace MotivationAdmin.Views
         AzureDataService azure;
         AdminViewModel thisAdmin = new AdminViewModel();
         DatePicker selectedDT = new DatePicker();
+        List<TodoFullItem> oldList = new List<TodoFullItem>();
         SchedulePage selectedMessage;
         public GroupMessages (ChatGroup _thisGroup, AdminViewModel _thisAdmin)
 		{
             InitializeComponent();
             // dateTodo.ItemsSource = null;
             azure = AzureDataService.DefaultService;
+            var save = new ToolbarItem() { Text = "Save" };
+            save.Clicked += OnSaveClicked;
+            this.ToolbarItems.Add(save);
+
             thisAdmin = _thisAdmin;
             thisGroup = _thisGroup;
              selectedDT = dpicker;
@@ -32,12 +37,27 @@ namespace MotivationAdmin.Views
             InitializeComponent();
             if (_thisGroup.ReadyToDoList.Count > 0)
             {
-                dateTodo.ItemsSource = _thisGroup.ReadyToDoList;
+                
+                oldList = thisGroup.ReadyToDoList.OrderBy(x=>x.SendTimeSpan).ToList();
+                dateTodo.ItemsSource = oldList;
+                //BindingContext = _thisGroup.ReadyToDoList;
             }
            
 			
 		}
-
+        void OnSaveClicked(object sender, EventArgs e)
+        {
+            List<TodoFullItem> newList = new List<TodoFullItem>();
+            foreach(var s in dateTodo.ItemsSource)
+            {
+                var td = (TodoFullItem)s;
+                Console.WriteLine("cehcktime----->"+td.ScheduleId +"---"+td.SendTimeSpan);
+                newList.Add(td);
+            }
+             azure.EditMessageTimes(oldList, newList);
+            dateTodo.ItemsSource = null;
+            dateTodo.ItemsSource = newList.OrderBy(n=>n.SendTimeSpan);
+        }
         private async void Button_Clicked(object sender, EventArgs e)
         {
             selectedMessage = new SchedulePage(thisAdmin.UsersAllMessages.ToList(), selectedDT);
@@ -87,7 +107,7 @@ namespace MotivationAdmin.Views
 
         private void displayList(DatePicker dp)
         {
-            dateTodo.ItemsSource = thisGroup.ReadyToDoList.Where(rl => rl.SendDateTime.Date == dp.Date);
+            dateTodo.ItemsSource = thisGroup.ReadyToDoList.Where(rl => rl.SendDateTime.Date == dp.Date).OrderBy(x=>x.SendTimeSpan);
         }
 
         private void Up_Clicked(object sender, EventArgs e)
@@ -99,6 +119,37 @@ namespace MotivationAdmin.Views
         {
             selectedDT.Date = selectedDT.Date.AddDays(-1);
             displayList(selectedDT);
+        }
+        private void OnEdit(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            //DisplayAlert("Delete Context Action",  + " delete context action", "OK");
+            var selected = (TodoFullItem)mi.CommandParameter;
+
+            //azure.EditGroupMessage(selected);
+            //oldList.Remove(selected);
+            //dateTodo.ItemsSource = oldList.OrderBy(x => x.SendTimeSpan);
+        }
+        private void OnDelete(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            //DisplayAlert("Delete Context Action",  + " delete context action", "OK");
+            var selected = (TodoFullItem)mi.CommandParameter;
+            azure.DeleteMessageFromGroup(selected);
+
+            thisGroup.ReadyToDoList.Remove(selected);
+            //dateTodo.ItemsSource = null;
+           // dateTodo.ItemsSource = oldList.OrderBy(x => x.SendTimeSpan);
+            //selectedDT.Date = selectedDT.Date.AddDays(-1);
+            displayList(selectedDT);
+        }
+
+        private void dateTodo_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }
