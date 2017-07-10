@@ -68,10 +68,21 @@ namespace MotivationAdmin
             User = (User) AzureConnect(query, "User");
            // return _user;
         }
-        public void AddUserPending(string newUserEmail, User admin)
+        public User AddUserPending(string newUserEmail, User admin, int groupId = 0)
         {
-            string query = "INSERT INTO Users Email, AdminId VALUES ('" + newUserEmail+"', '"+admin.Id+"')";
-            AzureConnect(query, "Edit");
+            string query = "INSERT INTO Users Email, AdminId VALUES ('" + newUserEmail+"', '"+admin.Id+ "'); SELECT SCOPE_IDENTITY();";
+            int lastId = (int)AzureConnect(query, "CheckId");
+            if (lastId != 0)
+            {
+                User _user = new User();
+                _user.Admin = false;
+                _user.Id = lastId;
+                _user.Email = newUserEmail;
+                AddUserToGroup(_user, groupId);
+               // ChatGroup findcg = GetChatGroupById(lastId);
+                return _user;
+            }
+            return null;
         }
 
         public void AddDaysToSchedule(int scheduleId, List<Day> dayList)
@@ -481,11 +492,7 @@ namespace MotivationAdmin
                         else if (taskType == "ToDoSchedule")
                         {
                             returnValue = readLastScheduleIds(reader);
-                        }
-                        else if (taskType == "ToDoDaysList")
-                        {
-                            //returnValue = readAllDays(reader);
-                        }
+                        }  
                     }
                     
 
@@ -649,9 +656,20 @@ namespace MotivationAdmin
                     groupNo = Convert.ToInt32(reader[5]);
                     _user.Email = Convert.ToString(reader[6]);
                     _user.Phone = Convert.ToString(reader[7]);
-                    _user.Location = Convert.ToInt32(reader[8]);
-                    _user.Gender = Convert.ToBoolean(reader[9]);
-                    _user.Age = Convert.ToInt32(reader[10]);
+                    if (!reader.IsDBNull(8))
+                        _user.Location = Convert.ToInt32(reader[8]);
+                    else
+                        _user.Location = 0;
+                    if (!reader.IsDBNull(9))
+                        _user.Gender = Convert.ToBoolean(reader[9]);
+                    else
+                        _user.Gender = null;
+
+                    if (!reader.IsDBNull(10))
+                        _user.Age = Convert.ToInt32(reader[10]);
+                    else
+                        _user.Age = 0;
+
                     _chatGroup.Id = groupNo;
                     _chatGroup.UserList.Add(_user);
                     var check = _chatGroupList.Any(item => item.Id == groupNo);                  

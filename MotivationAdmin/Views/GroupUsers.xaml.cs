@@ -13,11 +13,18 @@ namespace MotivationAdmin.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GroupUsers : ContentPage
 	{
-		public GroupUsers (ChatGroup _chatgroup)
+        ChatGroup thisChatgroup = new ChatGroup();
+        AdminViewModel avm = new AdminViewModel();
+        AzureDataService _azure;
+        NewUser nu;
+        public GroupUsers (ChatGroup _chatgroup, AdminViewModel _admin)
 		{
 			InitializeComponent ();
-            BindingContext = _chatgroup;
-
+            _azure = AzureDataService.DefaultService;
+            avm = _admin;
+            thisChatgroup = _chatgroup;
+            BindingContext = thisChatgroup;
+            
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -29,6 +36,29 @@ namespace MotivationAdmin.Views
             UserInfo ui = new UserInfo(selectedUser);
             Navigation.PushAsync(ui);
             ((ListView)sender).SelectedItem = null;
+        }
+        async void OnAlertYesNoClicked(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("New User", "Add a pending user or new user for group "+ thisChatgroup.GroupName, "Pending", "New");
+            Console.WriteLine("Answer: " + answer); //pending == true, new == false
+            if(answer == true)
+            {
+                //pending select multiple page
+                //var selectPage = new SelectMultipleBasePage<User>(avm.PendingUsers);
+               // await Navigation.PushAsync(selectPage);
+            } else
+            {
+                //new add new user page
+                nu = new NewUser(avm, thisChatgroup.Id);
+                nu.OnNewUser += new EventHandler(addingUser);
+                await Navigation.PushAsync(nu);
+            }
+        }
+
+        private void addingUser(object sender, EventArgs e)
+        {
+            User usr = nu.returnUser();
+            thisChatgroup.UserList.Add(usr);
         }
     }
 }

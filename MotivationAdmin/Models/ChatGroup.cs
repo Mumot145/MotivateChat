@@ -22,8 +22,15 @@ namespace MotivationAdmin.Models
         public List<User> UserList
         {
             get { return users; }
-            set { users = value; }
+            set { users = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("UserList"));
+                }
+            }
         }
+    
+        //AllGroupUsers
         public List<TodoFullItem> ReadyToDoList
         {
             get { return readyToDos; }

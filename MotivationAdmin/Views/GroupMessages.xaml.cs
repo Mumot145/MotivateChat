@@ -19,6 +19,7 @@ namespace MotivationAdmin.Views
         DatePicker selectedDT = new DatePicker();
         List<TodoFullItem> oldList = new List<TodoFullItem>();
         SchedulePage selectedMessage;
+        EditMessage em;
         public GroupMessages (ChatGroup _thisGroup, AdminViewModel _thisAdmin)
 		{
             InitializeComponent();
@@ -120,16 +121,37 @@ namespace MotivationAdmin.Views
             selectedDT.Date = selectedDT.Date.AddDays(-1);
             displayList(selectedDT);
         }
-        private void OnEdit(object sender, EventArgs e)
+        private async void OnEdit(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
             //DisplayAlert("Delete Context Action",  + " delete context action", "OK");
             var selected = (TodoFullItem)mi.CommandParameter;
-
+            em = new EditMessage(selected);
+            em.OnEditMessage += Em_OnEditMessage;
+            await Navigation.PushAsync(em);
+            //
             //azure.EditGroupMessage(selected);
             //oldList.Remove(selected);
             //dateTodo.ItemsSource = oldList.OrderBy(x => x.SendTimeSpan);
         }
+
+        private void Em_OnEditMessage(object sender, EventArgs e)
+        {
+            var newItem = em.returnFixItem;
+            bool chk = false;
+            var check = thisGroup.ReadyToDoList.Where(tg => tg.AttachedToDo.Id == newItem.AttachedToDo.Id).Select(x => { x = newItem; return true; });
+            foreach(var c in check)
+            {
+                if (c == true)
+                    chk = true;
+                    
+            }
+            if (chk == true)
+                displayList(selectedDT);
+            else
+                Console.WriteLine("shiiiit");
+        }
+
         private void OnDelete(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);

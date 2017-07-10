@@ -19,10 +19,20 @@ namespace MotivationAdmin.Models
 
         private string Password { get; set; }
                
-        public bool Gender { get; set; }       
-        public bool Admin { get; set; }
-        public bool AttachedGroup { get; set; }
-        public string filterName {
+        public bool? Gender { get; set; }       
+        public bool? Admin { get; set; }
+        public bool? AttachedGroup { get; set; }
+        public bool isPending
+        {
+            get
+            {
+                if (Name == "")
+                    return true;
+                return false;
+            }
+        }
+        public string ToDo
+        {
             get {
                 if (Name == "") { return Email; }
                 else { return Name; }

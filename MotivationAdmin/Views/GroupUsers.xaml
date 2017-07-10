@@ -3,15 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MotivationAdmin.Views.GroupUsers"
              Title="{Binding GroupNameUserTitle}">
-    <ListView ItemsSource="{Binding UserList}" ItemSelected="ListView_ItemSelected">
+    <AbsoluteLayout>
+        <ListView ItemsSource="{Binding UserList}" ItemSelected="ListView_ItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="Start"/>
+                            <Label Text="{Binding ToDo}" FontSize="Medium" HorizontalOptions="Start"/>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+    <Button  AbsoluteLayout.LayoutBounds="0.90, 0.90, 0.25, 0.10"
+                   BackgroundColor="Green"
+                   BorderRadius="50"
+                   Clicked="OnAlertYesNoClicked"
+                   Text="..."
+                   AbsoluteLayout.LayoutFlags="All" />
+    </AbsoluteLayout>
 </ContentPage>

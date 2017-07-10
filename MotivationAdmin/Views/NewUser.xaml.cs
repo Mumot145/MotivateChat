@@ -18,10 +18,14 @@ namespace MotivationAdmin.Views
         AzureDataService _azure;
         //ChatGroup chatGroup = new ChatGroup();
         AdminViewModel _thisAdmin = new AdminViewModel();
-		public NewUser (AdminViewModel _avm)
+        int groupSpecified = 0;
+        User newUser = new User();
+		public NewUser (AdminViewModel _avm, int groupId = 0)
 		{
 			InitializeComponent ();
+            _azure = AzureDataService.DefaultService;
             _thisAdmin = _avm;
+            groupSpecified = groupId;
         }
         async void AddMember(object sender, EventArgs e)
         {
@@ -29,20 +33,35 @@ namespace MotivationAdmin.Views
             if (!String.IsNullOrEmpty(ngMember))
             {
                 var isEmail = checkEmail(ngMember);
-                var user = _azure.GetUser();
-                if(user != null && isEmail == true)
+               // var user = _azure.GetUser();
+                
+                if (_thisAdmin.ThisUser != null && isEmail == true)
                 {
-                    _azure.AddUserPending(ngMember, user);
-                    User newUser = new User();
-                    newUser.Email = ngMember;                   
-                    _thisAdmin.PendingUsers.Add(newUser);
-                    OnNewUser(this, new EventArgs());
-                    await Navigation.PopAsync();
+                    if (groupSpecified > 0)
+                    {
+                        _azure.AddUserPending(ngMember, _thisAdmin.ThisUser, groupSpecified);
+                        newUser = new User();
+                        newUser.Email = ngMember;
+                        _thisAdmin.UsersChatGroups.Where(g=>g.Id == groupSpecified).First().UserList.Add(newUser);
+                        OnNewUser(this, new EventArgs());
+                        await Navigation.PopAsync();
+                    }  else
+                    {
+                        _azure.AddUserPending(ngMember, _thisAdmin.ThisUser);
+                        User newUser = new User();
+                        newUser.Email = ngMember;
+                        _thisAdmin.PendingUsers.Add(newUser);
+                        OnNewUser(this, new EventArgs());
+                        await Navigation.PopAsync();
 
-                }  else
+                    }
+
+                }
+                else
                 {
                     badFormat.IsVisible = true;
-                }        
+                }
+
             } else
             {
                 notFound.IsVisible = true;
@@ -56,5 +75,10 @@ namespace MotivationAdmin.Views
             else
                 return false;
         }
+        public User returnUser()
+        {
+            return newUser;
+        }
+
     }
 }

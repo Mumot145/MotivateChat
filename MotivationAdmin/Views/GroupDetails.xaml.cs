@@ -44,12 +44,13 @@ namespace MotivationAdmin
         {
             groupMsgs = new GroupMessages(_currentChatGroup, thisAdmin);
            // addmsg.OnNewMessages += new EventHandler(AddNewMessages);
+
             await Navigation.PushAsync(groupMsgs);
         }
 
         private async void Users_Clicked(object sender, EventArgs e)
         {
-            groupUsrs = new GroupUsers(_currentChatGroup);
+            groupUsrs = new GroupUsers(_currentChatGroup, thisAdmin);
             // addmsg.OnNewMessages += new EventHandler(AddNewMessages);
             await Navigation.PushAsync(groupUsrs);
         }

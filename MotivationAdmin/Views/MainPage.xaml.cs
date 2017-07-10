@@ -40,6 +40,10 @@ namespace MotivationAdmin.Views
         }
         protected override void OnAppearing()
         {
+            foreach(var nav in Navigation.NavigationStack)
+            {
+                Console.WriteLine("looking at =>"+nav.Parent);
+            }
             Console.WriteLine("OUR STACK IS AT :"+ Navigation.NavigationStack.Count);
         }
         //Navigation.NavigationStack.Count
@@ -55,18 +59,20 @@ namespace MotivationAdmin.Views
         async void selectGroup(object sender, GroupArgs e)
         {
             Console.WriteLine("info =>" + e.Data.GroupName);
-            await Navigation.PushAsync(new GroupDetails(e.Data, thisAdmin));
+            GroupDetails selectedGroup = new GroupDetails(e.Data, thisAdmin);
+            await Navigation.PushAsync(selectedGroup);
         }
         async void selectSolo(object sender, GroupArgs e)
         {
             Console.WriteLine("info =>" + e.Data.GroupName);
-            if(e.Data != null && thisAdmin!=null)
-                await Navigation.PushAsync(new SoloDetails(e.Data, thisAdmin));
+            SoloDetails selectedSolo = new SoloDetails(e.Data, thisAdmin);
+            await Navigation.PushAsync(selectedSolo);
         }
         async void editUser(object sender, UserArgs e)
         {
-            Console.WriteLine("info =>" + e.Data.Name);            
-            await Navigation.PushAsync(new UserInfo(e.Data));
+            Console.WriteLine("info =>" + e.Data.Name);
+            UserInfo selectedSolo = new UserInfo(e.Data);
+            await Navigation.PushAsync(selectedSolo);
             //await Navigation.PushAsync(new GroupDetails(e.Data, thisAdmin));
         }
         //retVM()
